@@ -30,7 +30,7 @@
     <property name="geometry">
      <rect>
       <x>900</x>
-      <y>360</y>
+      <y>220</y>
       <width>100</width>
       <height>75</height>
      </rect>
@@ -55,16 +55,16 @@
      <enum>QTabWidget::Triangular</enum>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>2</number>
     </property>
     <property name="tabBarAutoHide">
      <bool>true</bool>
     </property>
     <widget class="QWidget" name="tab_4">
      <attribute name="title">
-      <string>Page</string>
+      <string>Search</string>
      </attribute>
-     <widget class="QTableWidget" name="store_table_3">
+     <widget class="QTableWidget" name="search_table">
       <property name="geometry">
        <rect>
         <x>60</x>
@@ -85,17 +85,17 @@
       </column>
       <column>
        <property name="text">
-        <string>المكان</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>العدد</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
         <string>السعر</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>محل</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>مخزن</string>
        </property>
       </column>
      </widget>
@@ -112,7 +112,7 @@
        <string>المنتج</string>
       </property>
      </widget>
-     <widget class="QComboBox" name="sell_name_7">
+     <widget class="QComboBox" name="search_name">
       <property name="geometry">
        <rect>
         <x>600</x>
@@ -121,19 +121,11 @@
         <height>41</height>
        </rect>
       </property>
-     </widget>
-     <widget class="QPushButton" name="sell_ok_10">
-      <property name="geometry">
-       <rect>
-        <x>300</x>
-        <y>30</y>
-        <width>161</width>
-        <height>61</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>بحث</string>
-      </property>
+      <item>
+       <property name="text">
+        <string>الكل</string>
+       </property>
+      </item>
      </widget>
     </widget>
     <widget class="QWidget" name="store_tab">
@@ -243,6 +235,12 @@
         <height>22</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="clearButtonEnabled">
+       <bool>false</bool>
+      </property>
      </widget>
      <widget class="QLabel" name="label_4">
       <property name="geometry">
@@ -273,8 +271,8 @@
      <widget class="QLabel" name="label_5">
       <property name="geometry">
        <rect>
-        <x>710</x>
-        <y>120</y>
+        <x>730</x>
+        <y>110</y>
         <width>101</width>
         <height>41</height>
        </rect>
@@ -287,7 +285,7 @@
       <property name="geometry">
        <rect>
         <x>620</x>
-        <y>130</y>
+        <y>120</y>
         <width>113</width>
         <height>22</height>
        </rect>
@@ -296,10 +294,10 @@
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QPushButton" name="sell_ok">
+     <widget class="QPushButton" name="sell_add">
       <property name="geometry">
        <rect>
-        <x>560</x>
+        <x>310</x>
         <y>190</y>
         <width>161</width>
         <height>61</height>
@@ -309,11 +307,510 @@
        <string>اضافه</string>
       </property>
      </widget>
-     <widget class="QTableWidget" name="fixes_table_2">
+     <widget class="QTableWidget" name="sell_table">
+      <property name="geometry">
+       <rect>
+        <x>210</x>
+        <y>270</y>
+        <width>631</width>
+        <height>251</height>
+       </rect>
+      </property>
+      <column>
+       <property name="text">
+        <string>اسم المنتج</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>العدد</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>سعر القطعه </string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>قبل الخصم</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>بعد الخصم</string>
+       </property>
+      </column>
+     </widget>
+     <widget class="QPushButton" name="sell_ok">
+      <property name="geometry">
+       <rect>
+        <x>110</x>
+        <y>570</y>
+        <width>161</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>تأكيد</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="sell_remove_ok">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>330</y>
+        <width>71</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>حذف</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="sell_remove_name">
+      <property name="geometry">
+       <rect>
+        <x>80</x>
+        <y>340</y>
+        <width>121</width>
+        <height>41</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="sell_name_label_2">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>290</y>
+        <width>141</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>ازاله منتج</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_10">
+      <property name="geometry">
+       <rect>
+        <x>790</x>
+        <y>170</y>
+        <width>41</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>خصم</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="sell_dis">
+      <property name="geometry">
+       <rect>
+        <x>650</x>
+        <y>180</y>
+        <width>81</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="inputMethodHints">
+       <set>Qt::ImhDigitsOnly</set>
+      </property>
+      <property name="readOnly">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="sell_per">
+      <property name="geometry">
+       <rect>
+        <x>520</x>
+        <y>200</y>
+        <width>95</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>نسبه</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="sell_pound">
+      <property name="geometry">
+       <rect>
+        <x>520</x>
+        <y>170</y>
+        <width>95</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>جنيه</string>
+      </property>
+      <property name="checked">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="sell_total_after">
+      <property name="geometry">
+       <rect>
+        <x>630</x>
+        <y>230</y>
+        <width>113</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_11">
+      <property name="geometry">
+       <rect>
+        <x>730</x>
+        <y>220</y>
+        <width>101</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>بعد الخصم</string>
+      </property>
+     </widget>
+     <widget class="QGroupBox" name="selling_group">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>10</y>
+        <width>651</width>
+        <height>651</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(85, 170, 255);</string>
+      </property>
+      <property name="title">
+       <string>GroupBox</string>
+      </property>
+      <widget class="QDialogButtonBox" name="sell_accept_box">
+       <property name="geometry">
+        <rect>
+         <x>200</x>
+         <y>597</y>
+         <width>211</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="layoutDirection">
+        <enum>Qt::LeftToRight</enum>
+       </property>
+       <property name="standardButtons">
+        <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+       </property>
+       <property name="centerButtons">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_37">
+       <property name="geometry">
+        <rect>
+         <x>120</x>
+         <y>10</y>
+         <width>481</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>13</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>سيتم بيع المنتجات التاليه :</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="selling_label">
+       <property name="geometry">
+        <rect>
+         <x>64</x>
+         <y>75</y>
+         <width>531</width>
+         <height>501</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QLineEdit" name="all_sell_dis">
+      <property name="geometry">
+       <rect>
+        <x>680</x>
+        <y>590</y>
+        <width>81</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="inputMethodHints">
+       <set>Qt::ImhDigitsOnly</set>
+      </property>
+      <property name="readOnly">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_35">
+      <property name="geometry">
+       <rect>
+        <x>820</x>
+        <y>580</y>
+        <width>41</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>خصم</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="all_sell_pound">
+      <property name="geometry">
+       <rect>
+        <x>550</x>
+        <y>580</y>
+        <width>95</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>جنيه</string>
+      </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_39">
+      <property name="geometry">
+       <rect>
+        <x>430</x>
+        <y>580</y>
+        <width>101</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>بعد الخصم</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="all_sell_per">
+      <property name="geometry">
+       <rect>
+        <x>550</x>
+        <y>610</y>
+        <width>95</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>نسبه</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="all_sell_total">
+      <property name="geometry">
+       <rect>
+        <x>662</x>
+        <y>550</y>
+        <width>101</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_40">
+      <property name="geometry">
+       <rect>
+        <x>760</x>
+        <y>540</y>
+        <width>101</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>اجمالي</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="all_sell_total_after">
       <property name="geometry">
        <rect>
         <x>330</x>
-        <y>260</y>
+        <y>590</y>
+        <width>113</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="sell_remove_all">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>430</y>
+        <width>171</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>حذف الكل</string>
+      </property>
+     </widget>
+     <zorder>sell_remove_all</zorder>
+     <zorder>sell_name_label</zorder>
+     <zorder>sell_name</zorder>
+     <zorder>label_2</zorder>
+     <zorder>sell_available</zorder>
+     <zorder>label_3</zorder>
+     <zorder>sell_number</zorder>
+     <zorder>label_4</zorder>
+     <zorder>sell_unit</zorder>
+     <zorder>label_5</zorder>
+     <zorder>sell_total</zorder>
+     <zorder>sell_add</zorder>
+     <zorder>sell_table</zorder>
+     <zorder>sell_ok</zorder>
+     <zorder>sell_remove_ok</zorder>
+     <zorder>sell_remove_name</zorder>
+     <zorder>sell_name_label_2</zorder>
+     <zorder>label_10</zorder>
+     <zorder>sell_dis</zorder>
+     <zorder>sell_per</zorder>
+     <zorder>sell_pound</zorder>
+     <zorder>sell_total_after</zorder>
+     <zorder>label_11</zorder>
+     <zorder>all_sell_dis</zorder>
+     <zorder>label_35</zorder>
+     <zorder>all_sell_pound</zorder>
+     <zorder>label_39</zorder>
+     <zorder>all_sell_per</zorder>
+     <zorder>all_sell_total</zorder>
+     <zorder>label_40</zorder>
+     <zorder>all_sell_total_after</zorder>
+     <zorder>selling_group</zorder>
+    </widget>
+    <widget class="QWidget" name="buy_tab">
+     <attribute name="title">
+      <string>Buy</string>
+     </attribute>
+     <widget class="QLabel" name="label_8">
+      <property name="geometry">
+       <rect>
+        <x>730</x>
+        <y>80</y>
+        <width>101</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>العدد</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_6">
+      <property name="geometry">
+       <rect>
+        <x>720</x>
+        <y>140</y>
+        <width>101</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>سعر القطعه</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="buy_number">
+      <property name="geometry">
+       <rect>
+        <x>600</x>
+        <y>90</y>
+        <width>113</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_7">
+      <property name="geometry">
+       <rect>
+        <x>728</x>
+        <y>30</y>
+        <width>101</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>المنتج</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="buy_unit">
+      <property name="geometry">
+       <rect>
+        <x>600</x>
+        <y>150</y>
+        <width>113</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="readOnly">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="buy_name">
+      <property name="geometry">
+       <rect>
+        <x>600</x>
+        <y>40</y>
+        <width>121</width>
+        <height>31</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="buy_ok">
+      <property name="geometry">
+       <rect>
+        <x>490</x>
+        <y>520</y>
+        <width>161</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>تأكيد</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="buy_place">
+      <property name="geometry">
+       <rect>
+        <x>410</x>
+        <y>60</y>
+        <width>141</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <item>
+       <property name="text">
+        <string>مخزن</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>محل</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QTableWidget" name="buy_table">
+      <property name="geometry">
+       <rect>
+        <x>320</x>
+        <y>230</y>
         <width>511</width>
         <height>251</height>
        </rect>
@@ -335,51 +832,28 @@
       </column>
       <column>
        <property name="text">
-        <string>اجمالي</string>
+        <string>المكان</string>
        </property>
       </column>
      </widget>
-     <widget class="QPushButton" name="sell_ok_2">
+     <widget class="QPushButton" name="buy_add">
       <property name="geometry">
        <rect>
-        <x>520</x>
-        <y>530</y>
+        <x>400</x>
+        <y>130</y>
         <width>161</width>
         <height>61</height>
        </rect>
       </property>
       <property name="text">
-       <string>تأكيد</string>
+       <string>اضافه</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="sell_ok_3">
-      <property name="geometry">
-       <rect>
-        <x>110</x>
-        <y>440</y>
-        <width>161</width>
-        <height>61</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>حذف</string>
-      </property>
-     </widget>
-     <widget class="QComboBox" name="sell_name_2">
+     <widget class="QLabel" name="sell_name_label_8">
       <property name="geometry">
        <rect>
         <x>160</x>
-        <y>370</y>
-        <width>121</width>
-        <height>41</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLabel" name="sell_name_label_2">
-      <property name="geometry">
-       <rect>
-        <x>130</x>
-        <y>320</y>
+        <y>240</y>
         <width>141</width>
         <height>41</height>
        </rect>
@@ -388,201 +862,123 @@
        <string>ازاله منتج</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="sell_number_2">
+     <widget class="QComboBox" name="buy_remove_name">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>290</y>
+        <width>121</width>
+        <height>41</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="buy_remove_ok">
       <property name="geometry">
        <rect>
         <x>30</x>
-        <y>380</y>
-        <width>113</width>
-        <height>22</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_9">
-      <property name="geometry">
-       <rect>
-        <x>30</x>
-        <y>330</y>
-        <width>101</width>
+        <y>290</y>
+        <width>111</width>
         <height>41</height>
        </rect>
       </property>
       <property name="text">
-       <string>العدد</string>
+       <string>حذف</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_10">
+     <widget class="QGroupBox" name="buying_group">
       <property name="geometry">
        <rect>
-        <x>400</x>
-        <y>110</y>
-        <width>41</width>
-        <height>41</height>
+        <x>160</x>
+        <y>0</y>
+        <width>651</width>
+        <height>651</height>
        </rect>
       </property>
-      <property name="text">
-       <string>خصم</string>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(85, 170, 255);</string>
       </property>
+      <property name="title">
+       <string>GroupBox</string>
+      </property>
+      <widget class="QDialogButtonBox" name="accept_box">
+       <property name="geometry">
+        <rect>
+         <x>200</x>
+         <y>597</y>
+         <width>211</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="layoutDirection">
+        <enum>Qt::LeftToRight</enum>
+       </property>
+       <property name="standardButtons">
+        <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+       </property>
+       <property name="centerButtons">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label">
+       <property name="geometry">
+        <rect>
+         <x>120</x>
+         <y>10</y>
+         <width>481</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>13</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>سيتم اضافه المنتجات التاليه :</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_9">
+       <property name="geometry">
+        <rect>
+         <x>64</x>
+         <y>75</y>
+         <width>531</width>
+         <height>501</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
      </widget>
-     <widget class="QLineEdit" name="sell_total_2">
-      <property name="geometry">
-       <rect>
-        <x>402</x>
-        <y>150</y>
-        <width>81</width>
-        <height>22</height>
-       </rect>
-      </property>
-      <property name="readOnly">
-       <bool>true</bool>
-      </property>
-     </widget>
-     <widget class="QSpinBox" name="spinBox">
-      <property name="geometry">
-       <rect>
-        <x>410</x>
-        <y>180</y>
-        <width>61</width>
-        <height>31</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_11">
-      <property name="geometry">
-       <rect>
-        <x>350</x>
-        <y>140</y>
-        <width>41</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>جنيه</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_35">
+     <widget class="QPushButton" name="buy_remove_all">
       <property name="geometry">
        <rect>
         <x>100</x>
-        <y>550</y>
-        <width>331</width>
-        <height>71</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>          يظهر ريسيت فيها المنتجات والعدد والسعر  </string>
-      </property>
-     </widget>
-    </widget>
-    <widget class="QWidget" name="buy_tab">
-     <attribute name="title">
-      <string>Buy</string>
-     </attribute>
-     <widget class="QLabel" name="label_8">
-      <property name="geometry">
-       <rect>
-        <x>650</x>
-        <y>130</y>
-        <width>101</width>
+        <y>380</y>
+        <width>171</width>
         <height>41</height>
        </rect>
       </property>
       <property name="text">
-       <string>العدد</string>
+       <string>حذف الكل</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_6">
-      <property name="geometry">
-       <rect>
-        <x>650</x>
-        <y>190</y>
-        <width>101</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>سعر القطعه</string>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="buy_number">
-      <property name="geometry">
-       <rect>
-        <x>530</x>
-        <y>140</y>
-        <width>113</width>
-        <height>22</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_7">
-      <property name="geometry">
-       <rect>
-        <x>650</x>
-        <y>70</y>
-        <width>101</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>المنتج</string>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="buy_unit">
-      <property name="geometry">
-       <rect>
-        <x>530</x>
-        <y>200</y>
-        <width>113</width>
-        <height>22</height>
-       </rect>
-      </property>
-      <property name="readOnly">
-       <bool>true</bool>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="buy_name">
-      <property name="geometry">
-       <rect>
-        <x>522</x>
-        <y>80</y>
-        <width>121</width>
-        <height>31</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="buy_ok">
-      <property name="geometry">
-       <rect>
-        <x>520</x>
-        <y>340</y>
-        <width>161</width>
-        <height>61</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>تأكيد</string>
-      </property>
-     </widget>
-     <widget class="QComboBox" name="buy_place">
-      <property name="geometry">
-       <rect>
-        <x>510</x>
-        <y>250</y>
-        <width>141</width>
-        <height>51</height>
-       </rect>
-      </property>
-      <item>
-       <property name="text">
-        <string>مخزن</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>محل</string>
-       </property>
-      </item>
-     </widget>
+     <zorder>buy_remove_all</zorder>
+     <zorder>label_8</zorder>
+     <zorder>label_6</zorder>
+     <zorder>buy_number</zorder>
+     <zorder>label_7</zorder>
+     <zorder>buy_unit</zorder>
+     <zorder>buy_name</zorder>
+     <zorder>buy_ok</zorder>
+     <zorder>buy_place</zorder>
+     <zorder>buy_table</zorder>
+     <zorder>buy_add</zorder>
+     <zorder>sell_name_label_8</zorder>
+     <zorder>buy_remove_name</zorder>
+     <zorder>buy_remove_ok</zorder>
+     <zorder>buying_group</zorder>
     </widget>
     <widget class="QWidget" name="house_tab">
      <attribute name="title">
@@ -730,11 +1126,11 @@
         <x>-6</x>
         <y>0</y>
         <width>891</width>
-        <height>621</height>
+        <height>671</height>
        </rect>
       </property>
       <property name="currentIndex">
-       <number>3</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="newclient_tab">
        <attribute name="title">
@@ -776,7 +1172,7 @@
          </rect>
         </property>
         <property name="readOnly">
-         <bool>true</bool>
+         <bool>false</bool>
         </property>
        </widget>
        <widget class="QLineEdit" name="new_client_name">
@@ -812,7 +1208,7 @@
          </rect>
         </property>
         <property name="readOnly">
-         <bool>true</bool>
+         <bool>false</bool>
         </property>
        </widget>
        <widget class="QLabel" name="label_23">
@@ -838,7 +1234,7 @@
          </rect>
         </property>
         <property name="readOnly">
-         <bool>true</bool>
+         <bool>false</bool>
         </property>
        </widget>
        <widget class="QLineEdit" name="new_client_condition">
@@ -854,7 +1250,7 @@
          <string/>
         </property>
         <property name="readOnly">
-         <bool>true</bool>
+         <bool>false</bool>
         </property>
        </widget>
        <widget class="QLabel" name="label_24">
@@ -883,7 +1279,7 @@
          <string/>
         </property>
         <property name="readOnly">
-         <bool>true</bool>
+         <bool>false</bool>
         </property>
        </widget>
        <widget class="QLabel" name="label_25">
@@ -948,7 +1344,7 @@
          <string>يظهر بوكس يسأل لو هيشتري منتجات </string>
         </property>
        </widget>
-       <widget class="QLineEdit" name="new_client_name_2">
+       <widget class="QLineEdit" name="new_client_money">
         <property name="geometry">
          <rect>
           <x>600</x>
@@ -984,7 +1380,7 @@
          <string>المصنعيه</string>
         </property>
        </widget>
-       <widget class="QLineEdit" name="new_client_name_5">
+       <widget class="QLineEdit" name="new_client_cost">
         <property name="geometry">
          <rect>
           <x>600</x>
@@ -993,6 +1389,53 @@
           <height>22</height>
          </rect>
         </property>
+       </widget>
+       <widget class="QGroupBox" name="new_groupBox">
+        <property name="geometry">
+         <rect>
+          <x>50</x>
+          <y>160</y>
+          <width>341</width>
+          <height>191</height>
+         </rect>
+        </property>
+        <property name="title">
+         <string>GroupBox</string>
+        </property>
+        <widget class="QDialogButtonBox" name="buttonBox">
+         <property name="geometry">
+          <rect>
+           <x>100</x>
+           <y>130</y>
+           <width>193</width>
+           <height>28</height>
+          </rect>
+         </property>
+         <property name="layoutDirection">
+          <enum>Qt::LeftToRight</enum>
+         </property>
+         <property name="standardButtons">
+          <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_41">
+         <property name="geometry">
+          <rect>
+           <x>100</x>
+           <y>30</y>
+           <width>131</width>
+           <height>81</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>بيع منتج ؟ </string>
+         </property>
+        </widget>
        </widget>
       </widget>
       <widget class="QWidget" name="currentclient_tab">
@@ -1009,7 +1452,7 @@
          </rect>
         </property>
         <property name="readOnly">
-         <bool>true</bool>
+         <bool>false</bool>
         </property>
        </widget>
        <widget class="QLineEdit" name="client_color">
@@ -1022,7 +1465,7 @@
          </rect>
         </property>
         <property name="readOnly">
-         <bool>true</bool>
+         <bool>false</bool>
         </property>
        </widget>
        <widget class="QLineEdit" name="client_condition">
@@ -1038,7 +1481,7 @@
          <string/>
         </property>
         <property name="readOnly">
-         <bool>true</bool>
+         <bool>false</bool>
         </property>
        </widget>
        <widget class="QLineEdit" name="client_bike">
@@ -1051,7 +1494,7 @@
          </rect>
         </property>
         <property name="readOnly">
-         <bool>true</bool>
+         <bool>false</bool>
         </property>
        </widget>
        <widget class="QLabel" name="label_29">
@@ -1132,9 +1575,9 @@
        <widget class="QTableWidget" name="fixes_table">
         <property name="geometry">
          <rect>
-          <x>430</x>
-          <y>330</y>
-          <width>431</width>
+          <x>130</x>
+          <y>310</y>
+          <width>721</width>
           <height>251</height>
          </rect>
         </property>
@@ -1153,8 +1596,18 @@
           <string>الوصف</string>
          </property>
         </column>
+        <column>
+         <property name="text">
+          <string>المبلغ</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>المصنعيه</string>
+         </property>
+        </column>
        </widget>
-       <widget class="QPushButton" name="new_fix_pb">
+       <widget class="QPushButton" name="add_new_fix">
         <property name="geometry">
          <rect>
           <x>180</x>
@@ -1170,14 +1623,22 @@
        <widget class="QGroupBox" name="groupBox">
         <property name="geometry">
          <rect>
-          <x>10</x>
-          <y>110</y>
+          <x>30</x>
+          <y>70</y>
           <width>411</width>
           <height>371</height>
          </rect>
         </property>
+        <property name="font">
+         <font>
+          <pointsize>8</pointsize>
+         </font>
+        </property>
         <property name="title">
-         <string>GroupBox</string>
+         <string>Hidden Box</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
         </property>
         <widget class="QDateEdit" name="client_fix_date">
          <property name="geometry">
@@ -1202,13 +1663,13 @@
           <string/>
          </property>
          <property name="readOnly">
-          <bool>true</bool>
+          <bool>false</bool>
          </property>
         </widget>
         <widget class="QPushButton" name="client_ok">
          <property name="geometry">
           <rect>
-           <x>130</x>
+           <x>110</x>
            <y>290</y>
            <width>161</width>
            <height>61</height>
@@ -1244,7 +1705,7 @@
           <string>التفاصيل</string>
          </property>
         </widget>
-        <widget class="QLineEdit" name="new_client_name_6">
+        <widget class="QLineEdit" name="client_cost">
          <property name="geometry">
           <rect>
            <x>160</x>
@@ -1267,7 +1728,7 @@
           <string>المبلغ</string>
          </property>
         </widget>
-        <widget class="QLineEdit" name="new_client_name_7">
+        <widget class="QLineEdit" name="client_money">
          <property name="geometry">
           <rect>
            <x>160</x>
@@ -1291,6 +1752,19 @@
          </property>
         </widget>
        </widget>
+       <widget class="QPushButton" name="client_change">
+        <property name="geometry">
+         <rect>
+          <x>510</x>
+          <y>570</y>
+          <width>161</width>
+          <height>61</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>حفظ التعديلات</string>
+        </property>
+       </widget>
        <zorder>client_phone</zorder>
        <zorder>client_color</zorder>
        <zorder>client_condition</zorder>
@@ -1301,19 +1775,20 @@
        <zorder>label_31</zorder>
        <zorder>label_32</zorder>
        <zorder>client_name</zorder>
-       <zorder>new_fix_pb</zorder>
-       <zorder>groupBox</zorder>
+       <zorder>add_new_fix</zorder>
        <zorder>fixes_table</zorder>
+       <zorder>client_change</zorder>
+       <zorder>groupBox</zorder>
       </widget>
       <widget class="QWidget" name="tab">
        <attribute name="title">
         <string>بيع</string>
        </attribute>
-       <widget class="QPushButton" name="sell_ok_6">
+       <widget class="QPushButton" name="client_sell_remove">
         <property name="geometry">
          <rect>
-          <x>110</x>
-          <y>430</y>
+          <x>50</x>
+          <y>390</y>
           <width>161</width>
           <height>61</height>
          </rect>
@@ -1322,27 +1797,17 @@
          <string>حذف</string>
         </property>
        </widget>
-       <widget class="QLineEdit" name="sell_total_3">
+       <widget class="QLineEdit" name="client_sell_total">
         <property name="geometry">
          <rect>
           <x>620</x>
-          <y>120</y>
+          <y>110</y>
           <width>113</width>
           <height>22</height>
          </rect>
         </property>
         <property name="readOnly">
          <bool>true</bool>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="sell_number_4">
-        <property name="geometry">
-         <rect>
-          <x>30</x>
-          <y>370</y>
-          <width>113</width>
-          <height>22</height>
-         </rect>
         </property>
        </widget>
        <widget class="QLabel" name="label_38">
@@ -1358,7 +1823,7 @@
          <string>المتوفر</string>
         </property>
        </widget>
-       <widget class="QLCDNumber" name="sell_available_2">
+       <widget class="QLCDNumber" name="client_sell_available">
         <property name="geometry">
          <rect>
           <x>400</x>
@@ -1368,7 +1833,7 @@
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="sell_unit_2">
+       <widget class="QLineEdit" name="client_sell_unit">
         <property name="geometry">
          <rect>
           <x>360</x>
@@ -1394,11 +1859,11 @@
          <string>سعر القطعه</string>
         </property>
        </widget>
-       <widget class="QPushButton" name="sell_ok_5">
+       <widget class="QPushButton" name="client_sell_add">
         <property name="geometry">
          <rect>
-          <x>560</x>
-          <y>180</y>
+          <x>360</x>
+          <y>170</y>
           <width>161</width>
           <height>61</height>
          </rect>
@@ -1407,7 +1872,7 @@
          <string>اضافه</string>
         </property>
        </widget>
-       <widget class="QPushButton" name="sell_ok_4">
+       <widget class="QPushButton" name="client_sell_ok">
         <property name="geometry">
          <rect>
           <x>520</x>
@@ -1420,11 +1885,11 @@
          <string>تأكيد</string>
         </property>
        </widget>
-       <widget class="QComboBox" name="sell_name_3">
+       <widget class="QComboBox" name="client_sell_remove_name">
         <property name="geometry">
          <rect>
-          <x>160</x>
-          <y>360</y>
+          <x>70</x>
+          <y>330</y>
           <width>121</width>
           <height>41</height>
          </rect>
@@ -1433,8 +1898,8 @@
        <widget class="QLabel" name="label_16">
         <property name="geometry">
          <rect>
-          <x>710</x>
-          <y>110</y>
+          <x>730</x>
+          <y>100</y>
           <width>101</width>
           <height>41</height>
          </rect>
@@ -1443,54 +1908,11 @@
          <string>اجمالي</string>
         </property>
        </widget>
-       <widget class="QLabel" name="label_37">
-        <property name="geometry">
-         <rect>
-          <x>30</x>
-          <y>320</y>
-          <width>101</width>
-          <height>41</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>العدد</string>
-        </property>
-       </widget>
-       <widget class="QTableWidget" name="fixes_table_3">
-        <property name="geometry">
-         <rect>
-          <x>330</x>
-          <y>250</y>
-          <width>511</width>
-          <height>251</height>
-         </rect>
-        </property>
-        <column>
-         <property name="text">
-          <string>اسم المنتج</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>العدد</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>سعر القطعه </string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>اجمالي</string>
-         </property>
-        </column>
-       </widget>
        <widget class="QLabel" name="sell_name_label_3">
         <property name="geometry">
          <rect>
-          <x>130</x>
-          <y>310</y>
+          <x>40</x>
+          <y>280</y>
           <width>141</width>
           <height>41</height>
          </rect>
@@ -1499,40 +1921,17 @@
          <string>ازاله منتج</string>
         </property>
        </widget>
-       <widget class="QLineEdit" name="sell_number_3">
+       <widget class="QLineEdit" name="client_sell_number">
         <property name="geometry">
          <rect>
-          <x>610</x>
+          <x>620</x>
           <y>70</y>
           <width>113</width>
           <height>22</height>
          </rect>
         </property>
        </widget>
-       <widget class="QSpinBox" name="spinBox_2">
-        <property name="geometry">
-         <rect>
-          <x>410</x>
-          <y>170</y>
-          <width>61</width>
-          <height>31</height>
-         </rect>
-        </property>
-       </widget>
-       <widget class="QLabel" name="label_13">
-        <property name="geometry">
-         <rect>
-          <x>350</x>
-          <y>130</y>
-          <width>41</width>
-          <height>41</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>جنيه</string>
-        </property>
-       </widget>
-       <widget class="QComboBox" name="sell_name_4">
+       <widget class="QComboBox" name="client_sell_product">
         <property name="geometry">
          <rect>
           <x>612</x>
@@ -1542,11 +1941,11 @@
          </rect>
         </property>
        </widget>
-       <widget class="QLineEdit" name="sell_total_4">
+       <widget class="QLineEdit" name="client_sell_dis">
         <property name="geometry">
          <rect>
-          <x>402</x>
-          <y>140</y>
+          <x>650</x>
+          <y>160</y>
           <width>81</width>
           <height>22</height>
          </rect>
@@ -1584,8 +1983,8 @@
        <widget class="QLabel" name="label_14">
         <property name="geometry">
          <rect>
-          <x>400</x>
-          <y>100</y>
+          <x>790</x>
+          <y>150</y>
           <width>41</width>
           <height>41</height>
          </rect>
@@ -1594,12 +1993,99 @@
          <string>خصم</string>
         </property>
        </widget>
+       <widget class="QRadioButton" name="client_sell_pound">
+        <property name="geometry">
+         <rect>
+          <x>538</x>
+          <y>150</y>
+          <width>95</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>جنيه</string>
+        </property>
+       </widget>
+       <widget class="QRadioButton" name="client_sell_per">
+        <property name="geometry">
+         <rect>
+          <x>538</x>
+          <y>180</y>
+          <width>95</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>نسبه</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_13">
+        <property name="geometry">
+         <rect>
+          <x>730</x>
+          <y>200</y>
+          <width>101</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>بعد الخصم</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="client_sell_total_after">
+        <property name="geometry">
+         <rect>
+          <x>620</x>
+          <y>210</y>
+          <width>113</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+       </widget>
+       <widget class="QTableWidget" name="client_sell_table">
+        <property name="geometry">
+         <rect>
+          <x>240</x>
+          <y>260</y>
+          <width>631</width>
+          <height>251</height>
+         </rect>
+        </property>
+        <column>
+         <property name="text">
+          <string>اسم المنتج</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>العدد</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>سعر القطعه </string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>قبل الخصم</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>بعد الخصم</string>
+         </property>
+        </column>
+       </widget>
       </widget>
       <widget class="QWidget" name="tab_3">
        <attribute name="title">
         <string>كل العملاء</string>
        </attribute>
-       <widget class="QTableWidget" name="store_table_2">
+       <widget class="QTableWidget" name="all_clients">
         <property name="geometry">
          <rect>
           <x>50</x>
@@ -1625,7 +2111,12 @@
         </column>
         <column>
          <property name="text">
-          <string>السعر</string>
+          <string>اخر صيانه</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>التفاصيل</string>
          </property>
         </column>
        </widget>
@@ -1637,7 +2128,7 @@
     <property name="geometry">
      <rect>
       <x>900</x>
-      <y>470</y>
+      <y>400</y>
       <width>100</width>
       <height>75</height>
      </rect>
@@ -1650,7 +2141,7 @@
     <property name="geometry">
      <rect>
       <x>900</x>
-      <y>260</y>
+      <y>310</y>
       <width>100</width>
       <height>75</height>
      </rect>
@@ -1663,7 +2154,7 @@
     <property name="geometry">
      <rect>
       <x>900</x>
-      <y>160</y>
+      <y>130</y>
       <width>100</width>
       <height>75</height>
      </rect>
@@ -1676,7 +2167,7 @@
     <property name="geometry">
      <rect>
       <x>900</x>
-      <y>580</y>
+      <y>490</y>
       <width>100</width>
       <height>75</height>
      </rect>
@@ -1685,11 +2176,11 @@
      <string>عملاء</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="buy_pb_2">
+   <widget class="QPushButton" name="search_pb">
     <property name="geometry">
      <rect>
       <x>900</x>
-      <y>60</y>
+      <y>40</y>
       <width>100</width>
       <height>75</height>
      </rect>
@@ -1711,6 +2202,89 @@
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
+ <tabstops>
+  <tabstop>search_pb</tabstop>
+  <tabstop>buy_pb</tabstop>
+  <tabstop>sell_pb</tabstop>
+  <tabstop>store_pb</tabstop>
+  <tabstop>house_pb</tabstop>
+  <tabstop>client_pb</tabstop>
+  <tabstop>search_name</tabstop>
+  <tabstop>sell_name</tabstop>
+  <tabstop>sell_number</tabstop>
+  <tabstop>sell_dis</tabstop>
+  <tabstop>sell_pound</tabstop>
+  <tabstop>sell_per</tabstop>
+  <tabstop>sell_add</tabstop>
+  <tabstop>all_sell_dis</tabstop>
+  <tabstop>all_sell_pound</tabstop>
+  <tabstop>all_sell_per</tabstop>
+  <tabstop>sell_ok</tabstop>
+  <tabstop>sell_remove_name</tabstop>
+  <tabstop>sell_remove_ok</tabstop>
+  <tabstop>sell_remove_all</tabstop>
+  <tabstop>buy_name</tabstop>
+  <tabstop>buy_number</tabstop>
+  <tabstop>buy_unit</tabstop>
+  <tabstop>buy_place</tabstop>
+  <tabstop>buy_add</tabstop>
+  <tabstop>buy_ok</tabstop>
+  <tabstop>buy_remove_name</tabstop>
+  <tabstop>buy_remove_ok</tabstop>
+  <tabstop>buy_remove_all</tabstop>
+  <tabstop>house_name</tabstop>
+  <tabstop>house_number</tabstop>
+  <tabstop>house_ok</tabstop>
+  <tabstop>new_client_name</tabstop>
+  <tabstop>new_client_phone</tabstop>
+  <tabstop>new_client_bike</tabstop>
+  <tabstop>new_client_color</tabstop>
+  <tabstop>new_client_condition</tabstop>
+  <tabstop>new_client_fix_date</tabstop>
+  <tabstop>new_client_fix</tabstop>
+  <tabstop>new_client_money</tabstop>
+  <tabstop>new_client_cost</tabstop>
+  <tabstop>new_client_ok</tabstop>
+  <tabstop>client_name</tabstop>
+  <tabstop>add_new_fix</tabstop>
+  <tabstop>client_fix_date</tabstop>
+  <tabstop>client_fix</tabstop>
+  <tabstop>client_money</tabstop>
+  <tabstop>client_cost</tabstop>
+  <tabstop>client_ok</tabstop>
+  <tabstop>client_phone</tabstop>
+  <tabstop>client_bike</tabstop>
+  <tabstop>client_color</tabstop>
+  <tabstop>client_condition</tabstop>
+  <tabstop>client_change</tabstop>
+  <tabstop>client_sell_remove</tabstop>
+  <tabstop>client_sell_total</tabstop>
+  <tabstop>client_sell_unit</tabstop>
+  <tabstop>client_sell_add</tabstop>
+  <tabstop>client_sell_ok</tabstop>
+  <tabstop>client_sell_remove_name</tabstop>
+  <tabstop>client_sell_number</tabstop>
+  <tabstop>client_sell_product</tabstop>
+  <tabstop>client_sell_dis</tabstop>
+  <tabstop>client_sell_pound</tabstop>
+  <tabstop>client_sell_per</tabstop>
+  <tabstop>client_sell_total_after</tabstop>
+  <tabstop>client_sell_table</tabstop>
+  <tabstop>all_clients</tabstop>
+  <tabstop>house_table</tabstop>
+  <tabstop>sell_table</tabstop>
+  <tabstop>all_sell_total</tabstop>
+  <tabstop>sell_total_after</tabstop>
+  <tabstop>clientTab</tabstop>
+  <tabstop>fixes_table</tabstop>
+  <tabstop>sell_unit</tabstop>
+  <tabstop>sell_total</tabstop>
+  <tabstop>search_table</tabstop>
+  <tabstop>mainTab</tabstop>
+  <tabstop>all_sell_total_after</tabstop>
+  <tabstop>store_table</tabstop>
+  <tabstop>buy_table</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>
