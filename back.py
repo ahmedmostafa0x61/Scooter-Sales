@@ -8,8 +8,7 @@ from PyQt5.QtGui import *
 from PyQt5.uic import loadUiType
 from texttable import Texttable
 
-
-# from finalui import Ui_MainWindow as Program
+# from GUI import Ui_MainWindow as Program
 
 Program, _ = loadUiType('GUI.ui')
 
@@ -22,43 +21,100 @@ sell_list.clear()
 buy_list = [[]]
 buy_list.clear()
 
-client_sell_list = [[]]
-client_sell_list.clear()
-
 
 class MainApp(QMainWindow, Program):
     def __init__(self):
         super(MainApp, self).__init__()
         QMainWindow.__init__(self)
         self.setupUi(self)
-        self.showMaximized()
+        self.showNormal()
         self.db = my_db
+
         self.ui_changes()
         self.buttons()
-        self.init_tabs()
 
-        self.store_db()
+        # ---------------
+        self.product_refresh()
+
         self.show_all_clients()
-        self.sell_show_products()
-        # ---------------
-        self.search_show_products()
-        self.search()
-        # ---------------
-        self.house_db()
-        self.show_client_sell_products()
         self.show_client_name()
         self.show_house_name()
+        self.get_sales_date()
 
-    def ui_changes(self):
-        # Hiding Tab head
+    # *******************************
+    #   Changes in UI
+    # *******************************
+
+    def main_tab_changes(self):
         self.mainTab.tabBar().setVisible(False)
+        self.mainTab.setCurrentIndex(0)
 
+    def client_tab_changes(self):
+        self.clientTab.setCurrentIndex(0)
+
+    def buy_table_changes(self):
         self.buy_table.verticalHeader().hide()
-        self.sell_table.verticalHeader().hide()
-        self.search_table.verticalHeader().hide()
-        self.store_table.verticalHeader().hide()
-        self.house_table.verticalHeader().hide()
+        # Column Size
+        self.buy_table.setColumnWidth(0, 200)
+        self.buy_table.setColumnWidth(1, 100)
+        self.buy_table.setColumnWidth(2, 100)
+        self.buy_table.setColumnWidth(3, 100)
 
+    def sell_table_changes(self):
+        self.sell_table.verticalHeader().hide()
+        # Column Size
+        self.sell_table.setColumnWidth(0, 200)
+        self.sell_table.setColumnWidth(1, 100)
+        self.sell_table.setColumnWidth(2, 100)
+        self.sell_table.setColumnWidth(3, 100)
+        self.sell_table.setColumnWidth(4, 100)
+
+    def search_table_changes(self):
+        self.search_table.verticalHeader().hide()
+        self.search_table.setSortingEnabled(True)
+        # Column size
+        self.search_table.setColumnWidth(0, 50)
+        self.search_table.setColumnWidth(1, 200)
+        self.search_table.setColumnWidth(2, 100)
+        self.search_table.setColumnWidth(3, 100)
+        self.search_table.setColumnWidth(4, 100)
+
+    def store_table_changes(self):
+        self.store_table.verticalHeader().hide()
+        self.store_table.setSortingEnabled(True)
+
+        self.store_table.setColumnWidth(0, 50)
+        self.store_table.setColumnWidth(0, 200)
+        self.store_table.setColumnWidth(0, 100)
+        self.store_table.setColumnWidth(0, 100)
+
+    def house_table_changes(self):
+        self.house_table.verticalHeader().hide()
+        self.house_table.setSortingEnabled(True)
+
+        self.house_table.setColumnWidth(0, 50)
+        self.house_table.setColumnWidth(1, 200)
+        self.house_table.setColumnWidth(2, 100)
+        self.house_table.setColumnWidth(3, 100)
+
+    def all_clients_table_changes(self):
+        self.all_clients.verticalHeader().hide()
+        self.all_clients.setColumnWidth(0, 200)
+        self.all_clients.setColumnWidth(1, 100)
+        self.all_clients.setColumnWidth(2, 100)
+        self.all_clients.setColumnWidth(3, 100)
+        self.all_clients.setColumnWidth(4, 300)
+
+    def fixes_table_changes(self):
+        self.fixes_table.verticalHeader().hide()
+
+        self.fixes_table.setColumnWidth(0, 100)
+        self.fixes_table.setColumnWidth(1, 100)
+        self.fixes_table.setColumnWidth(2, 300)
+        self.fixes_table.setColumnWidth(3, 100)
+        self.fixes_table.setColumnWidth(4, 100)
+
+    def input_strict(self):
         self.sell_number.setValidator(QIntValidator())
         self.buy_number.setValidator(QIntValidator())
         self.house_number.setValidator(QIntValidator())
@@ -72,47 +128,63 @@ class MainApp(QMainWindow, Program):
         self.client_money.setValidator(QDoubleValidator())
         self.client_cost.setValidator(QDoubleValidator())
 
-        # Show sorting
-        self.search_table.setSortingEnabled(True)
-        self.store_table.setSortingEnabled(True)
-        self.house_table.setSortingEnabled(True)
-
-        # init calender
+    def calender_today(self):
         self.new_client_fix_date.setDateTime(QDateTime.currentDateTime())
         self.client_fix_date.setDateTime(QDateTime.currentDateTime())
+
+    def ui_changes(self):
+
+        self.main_tab_changes()
+        self.client_tab_changes()
+        self.buy_table_changes()
+        self.sell_table_changes()
+        self.search_table_changes()
+        self.store_table_changes()
+        self.house_table_changes()
+        self.all_clients_table_changes()
+        self.fixes_table_changes()
+        self.input_strict()
+        self.calender_today()
 
         self.groupBox.setHidden(True)
         self.buying_group.setHidden(True)
         self.selling_group.setHidden(True)
         self.new_groupBox.setHidden(True)
 
-        # LCD Numbers
-        # self.lcdNumber.display(int(self.come))
+    # *******************************
+    #   Buttons
+    # *******************************
 
-    def init_tabs(self):
-        self.mainTab.setCurrentIndex(0)
-        self.clientTab.setCurrentIndex(0)
-
-    def buttons(self):
-
-        # Opening Tabs
-
+    def main_buttons(self):
         self.buy_pb.clicked.connect(self.open_buy)
         self.search_pb.clicked.connect(self.open_search)
         self.sell_pb.clicked.connect(self.open_sell)
         self.store_pb.clicked.connect(self.open_store)
         self.house_pb.clicked.connect(self.open_house)
         self.client_pb.clicked.connect(self.open_clients)
+        self.sales_pb.clicked.connect(self.open_sales)
 
-        # ---------------
-        # Tasks
-        # ---------------
-
-        # # Search OK
+    def search_buttons(self):
         self.search_name.currentTextChanged.connect(self.search)
 
-        #
-        # # Sell OK
+    def buy_buttons(self):
+        self.buy_add.clicked.connect(self.buy_adding)
+        self.buy_remove_ok.clicked.connect(self.buy_remove)
+        self.buy_remove_all.clicked.connect(self.remove_all_buy)
+        self.buy_ok.clicked.connect(self.print_buy_list)
+
+        self.accept_box.accepted.connect(self.buy_confirm)
+        self.accept_box.rejected.connect(self.hide_group)
+
+    def sell_buttons(self):
+        self.sell_add.clicked.connect(self.sell_adding)
+        self.sell_remove_ok.clicked.connect(self.sell_remove)
+        self.sell_remove_all.clicked.connect(self.remove_all_sell)
+        self.sell_ok.clicked.connect(self.print_sell_list)
+
+        self.sell_accept_box.accepted.connect(self.sell_confirm)
+        self.sell_accept_box.rejected.connect(self.hide_sell_group)
+
         self.sell_name.currentTextChanged.connect(self.show_avail)
         self.sell_number.textEdited.connect(self.calc_total)
 
@@ -121,65 +193,43 @@ class MainApp(QMainWindow, Program):
         self.sell_pound.released.connect(self.calc_after)
         self.sell_per.released.connect(self.calc_after)
 
-        # Complete Sell Functions
-        self.sell_add.clicked.connect(self.sell_adding)
-        self.sell_remove_ok.clicked.connect(self.sell_remove)
-        self.sell_ok.clicked.connect(self.print_sell_list)
-        self.sell_remove_all.clicked.connect(self.remove_all_sell)
-
-        self.sell_accept_box.accepted.connect(self.sell_confirm)
-        self.sell_accept_box.rejected.connect(self.hide_sell_group)
-
-        # # #  Total Discount
+        #  Total Discount
         self.all_sell_dis.textEdited.connect(self.calc_dis_total)
         self.all_sell_pound.pressed.connect(self.calc_dis_total)
         self.all_sell_per.pressed.connect(self.calc_dis_total)
 
-        #
-        # # Buy OK
-        self.buy_add.clicked.connect(self.buy_adding)
-        self.buy_remove_ok.clicked.connect(self.buy_remove)
-        self.buy_ok.clicked.connect(self.print_buy_list)
-        self.buy_remove_all.clicked.connect(self.remove_all_buy)
-
-        self.accept_box.accepted.connect(self.buy_confirm)
-        self.accept_box.rejected.connect(self.hide_group)
-
-        #
-        # # House OK
-        self.house_ok.clicked.connect(self.move_to_store)
-        #
-        # # New Client OK
+    def new_client_buttons(self):
         self.new_client_ok.clicked.connect(self.new_client)
-        #
-        #  Clients New Fix
-        self.client_ok.clicked.connect(self.new_fix)
-        #
-        #  Current Client
-        self.client_name.currentTextChanged.connect(self.current_client)
-        #
-        #  New Fix ?
-        self.add_new_fix.clicked.connect(self.show_new_fix)
-        #  Add New Fix
-        # self.client_ok.clicked.connect(self.new_fix)
-        #
-        # # Sell OK
-        self.client_sell_add.clicked.connect(self.client_sell_adding)
-        # self.client_sell_remove.clicked.connect(self.client_sell_remove)
-        self.client_sell_ok.clicked.connect(self.client_sell_confirm)
+
         # Client Sell
         self.buttonBox.accepted.connect(self.go_to_sell)
         self.buttonBox.rejected.connect(self.hide_client_group)
 
-        #
-        # dealing with users
-        # self.pushButton_17.clicked.connect(self.new_user)
-        # self.pushButton_18.clicked.connect(self.delete_user)
-        # self.pushButton_19.clicked.connect(self.edit_user)
-        # self.pushButton_20.clicked.connect(self.search_user)
-        #
-        # # login
-        # self.pushButton_27.clicked.connect(self.login)
+    def client_buttons(self):
+        self.client_ok.clicked.connect(self.new_fix)
+
+        self.add_new_fix.clicked.connect(self.show_new_fix)
+
+        self.client_change.clicked.connect(self.update_client)
+
+    def sales_buttons(self):
+        self.sales_date.currentTextChanged.connect(self.get_sales_date)
+        self.save_operation.clicked.connect(self.add_operation)
+
+    def buttons(self):
+        self.main_buttons()
+        self.search_buttons()
+        self.buy_buttons()
+        self.sell_buttons()
+        self.new_client_buttons()
+        self.client_buttons()
+        self.sales_buttons()
+
+        # House
+        self.house_ok.clicked.connect(self.move_to_store)
+
+        #  Current Client
+        self.client_name.currentTextChanged.connect(self.current_client)
 
     # *******************************
     #   Opening  Tabs
@@ -191,10 +241,10 @@ class MainApp(QMainWindow, Program):
     def open_store(self):
         self.mainTab.setCurrentIndex(1)
 
-    def open_sell(self):
+    def open_buy(self):
         self.mainTab.setCurrentIndex(2)
 
-    def open_buy(self):
+    def open_sell(self):
         self.mainTab.setCurrentIndex(3)
 
     def open_house(self):
@@ -203,6 +253,10 @@ class MainApp(QMainWindow, Program):
     def open_clients(self):
         self.mainTab.setCurrentIndex(5)
 
+    def open_sales(self):
+        self.mainTab.setCurrentIndex(6)
+
+    # -----------------------------
     def show_new_fix(self):
         if self.groupBox.isHidden():
             self.groupBox.setHidden(False)
@@ -217,9 +271,19 @@ class MainApp(QMainWindow, Program):
 
     def hide_client_group(self):
         self.new_groupBox.setHidden(True)
+        self.new_client_name.setText('')
+        self.new_client_phone.setText('')
+        self.new_client_bike.setText('')
+        self.new_client_color.setText('')
+        self.new_client_condition.setText('')
+        self.new_client_fix.setText('')
+        self.new_client_money.setText('')
+        self.new_client_cost.setText('')
+        self.show_client_name()
+        self.show_all_clients()
 
     # *******************************
-    # *******************************
+    #      Search
     # *******************************
 
     def search_show_products(self):
@@ -252,9 +316,9 @@ class MainApp(QMainWindow, Program):
                 row_pos = self.search_table.rowCount()
                 self.search_table.insertRow(row_pos)
 
-    # -------------------------------
-    # -------------------------------
-    # -------------------------------
+    # *******************************
+    #      Store
+    # *******************************
 
     def store_db(self):
 
@@ -271,9 +335,9 @@ class MainApp(QMainWindow, Program):
                 row_pos = self.store_table.rowCount()
                 self.store_table.insertRow(row_pos)
 
-    # -------------------------------
-    # -------------------------------
-    # -------------------------------
+    # *******************************
+    #      Sell
+    # *******************************
 
     def sell_show_products(self):
 
@@ -287,8 +351,9 @@ class MainApp(QMainWindow, Program):
 
     def sell_db(self):
 
-        """Done .
-        All things of Sell tab
+        """Getting Data From DB
+        Put Data in GUI
+        Return Data
         """
 
         name = self.sell_name.currentText()
@@ -339,11 +404,11 @@ class MainApp(QMainWindow, Program):
         name, number, number_stored, unit_price, total, total_after = self.sell_db()
 
         remaining = number_stored
-
+        self.sell_available.setStyleSheet('color:black')
         if number > number_stored:
             # ------------
             # ## Print No enough in store
-            print(f'No enough units of {name}, Only {number_stored} left')
+            self.sell_available.setStyleSheet('color:red')
             # --------------
 
         else:
@@ -363,41 +428,62 @@ class MainApp(QMainWindow, Program):
             else:
                 sell_list.append([name, number, remaining, unit_price, total, total_after])
 
-            x = 0
-            self.sell_table.setRowCount(0)
-
-            for i in sell_list:
-                row_pos = self.sell_table.rowCount()
-                self.sell_table.insertRow(row_pos)
-                self.sell_table.setItem(row_pos, 0, QTableWidgetItem(str(i[0])))
-                self.sell_table.setItem(row_pos, 1, QTableWidgetItem(str(i[1])))
-                self.sell_table.setItem(row_pos, 2, QTableWidgetItem(str(i[3])))
-                self.sell_table.setItem(row_pos, 3, QTableWidgetItem(str(i[4])))
-                self.sell_table.setItem(row_pos, 4, QTableWidgetItem(str(i[5])))
-
-                self.sell_remove_name.addItem(i[0])
-                x += i[5]
-                self.all_sell_total.setText(str(x))
+            self.sell_remove_name.clear()
+            self.print_sell_table_data()
+            self.calc_dis_total()
             self.sell_dis.setText('')
+
+    def print_sell_table_data(self):
+
+        """
+        - Print sell_table data
+        - Calc total and print
+        - Add items in Remove ComboBox
+        """
+
+        global sell_list
+        x = 0
+        self.sell_table.setRowCount(0)
+        for i in sell_list:
+            row_pos = self.sell_table.rowCount()
+            self.sell_table.insertRow(row_pos)
+            self.sell_table.setItem(row_pos, 0, QTableWidgetItem(str(i[0])))
+            self.sell_table.setItem(row_pos, 1, QTableWidgetItem(str(i[1])))
+            self.sell_table.setItem(row_pos, 2, QTableWidgetItem(str(i[3])))
+            self.sell_table.setItem(row_pos, 3, QTableWidgetItem(str(i[4])))
+            self.sell_table.setItem(row_pos, 4, QTableWidgetItem(str(i[5])))
+
+            self.sell_remove_name.addItem(i[0])
+            x += i[5]
+            self.all_sell_total.setText(str(x))
 
     def sell_remove(self):
         global sell_list
         name = self.sell_remove_name.currentText()
-        found = self.sell_table.findItems(name)
-        idx = found.row()
-        self.sell_table.removeRow(idx)
 
-        for i in sell_list:
-            if i[0] == name:
-                sell_list.remove(i)
+        for item in sell_list:
+            if item[0] == name:
+                sell_list.remove(item)
+
+        self.sell_remove_name.clear()
+        self.print_sell_table_data()
+
+        self.sell_dis.setText('')
 
     def sell_confirm(self):
         global sell_list
+
+        total = self.all_sell_total_after.text()
+        date = datetime.datetime.today()
 
         self.cur = self.db.cursor()
 
         for i in sell_list:
             self.cur.execute(f'''UPDATE products set s_number=%s WHERE p_name=%s ''', (i[2], i[0]))
+
+        self.cur.execute('''INSERT INTO sales (sale_date, operation, paid, text) VALUES (%s,%s,%s,%s)''',
+                         [date, 'sell', total, 'بيع'])
+
         self.db.commit()
 
         # self.sell_table.clear()
@@ -407,6 +493,8 @@ class MainApp(QMainWindow, Program):
         self.sell_total.setText('0')
         self.sell_dis.setText('0')
         self.sell_total_after.setText('0')
+        self.all_sell_total.setText('0')
+        self.all_sell_total_after.setText('0')
 
         self.sell_remove_name.clear()
 
@@ -433,342 +521,12 @@ class MainApp(QMainWindow, Program):
             unit_price = item[3]
             total = item[4]
             last_price = item[5]
-            x += int(total)
+            x += int(last_price)
             table.add_row([name, number, unit_price, total, last_price])
 
-        self.selling_label.setText(table.draw() + '\n' + f'الاجالي = {x}')
+        self.selling_label.setText(table.draw() + '\n' + f'الاجمالي = {x}')
 
-        print(table.draw())
 
-    # -------------------------------
-    # -------------------------------
-    # -------------------------------
-
-    def buy_adding(self):
-        global buy_list
-        """Done .
-        All things of Sell tab
-        """
-        # Getting info from UI
-        name = self.buy_name.text().strip()
-        number = self.buy_number.text().strip()
-        unit_price = self.buy_unit.text().strip()
-        place = self.buy_place.currentText()
-
-        for i in range(len(buy_list)):
-            if buy_list[i][0] == name and buy_list[i][3] == place:
-                buy_list[i][1] += int(number)
-                break
-
-        else:
-            buy_list.append([name, int(number), float(unit_price), place])
-        self.buy_table.setRowCount(0)
-        for i in buy_list:
-            row_pos = self.buy_table.rowCount()
-            self.buy_table.insertRow(row_pos)
-            self.buy_table.setItem(row_pos, 0, QTableWidgetItem(str(i[0])))
-            self.buy_table.setItem(row_pos, 1, QTableWidgetItem(str(i[1])))
-            self.buy_table.setItem(row_pos, 2, QTableWidgetItem(str(i[2])))
-            self.buy_table.setItem(row_pos, 3, QTableWidgetItem(str(i[3])))
-
-            self.buy_remove_name.addItem(i[0])
-
-    def buy_remove(self):
-
-        name = self.buy_remove_name.currentText()
-        found = self.sell_table.findItems(name)
-        idx = found.row()
-        self.buy_table.removeRow(idx)
-
-    def buy_confirm(self):
-        global buy_list
-
-        self.cur = self.db.cursor()
-
-        for i in buy_list:
-
-            name = i[0]
-            number = int(i[1])
-            unit_price = float(i[2])
-            place = i[3]
-
-            self.cur.execute(f''' SELECT p_price,s_number,h_number FROM products WHERE p_name=%s''', [name])
-            data = self.cur.fetchone()
-
-            s_number = 0
-            h_number = 0
-
-            if data:
-                p_price = float(data[0])
-                s_number = int(data[1])
-                h_number = int(data[2])
-
-                if p_price == unit_price:
-                    if place == 'محل':
-                        s_number += number
-
-                    else:
-                        h_number += number
-                else:
-                    # --------------
-                    # --------------
-                    print(' Different Prices')
-                    # check if yes set unit_price else p_price
-                    if ((True)):  # Don't change the price
-                        unit_price = p_price
-
-                    # ----------------
-                    # ----------------
-
-                self.cur.execute(
-                    f'''UPDATE products SET p_price=%s,s_number=%s WHERE p_name=%s ''', (unit_price, s_number, name))
-                # -------------
-
-            else:
-                if place == 'محل':
-                    s_number += number
-
-                else:
-                    h_number += number
-                self.cur.execute('''INSERT INTO products (p_name, p_price, s_number, h_number) VALUES (%s,%s,%s,%s)''',
-                                 (name, unit_price, s_number, h_number))
-            self.db.commit()
-
-        # self.buy_table.clear()
-        self.buy_table.setRowCount(0)
-        self.buy_remove_name.clear()
-
-        self.product_refresh()
-        buy_list.clear()
-        self.hide_group()
-
-    def print_buy_list(self):
-        global buy_list
-
-        self.buying_group.setHidden(False)
-
-        table = Texttable()
-        table.set_cols_width([25, 10, 10, 10])
-        # table.set_cols_align(["r", "r", "r", "r"])
-
-        table.header(["المنتج", "العدد", "المكان", "سعر القطعه"])
-        # table.set_cols_align(["c", "c", "c", "l"])
-
-        for item in buy_list:
-            table.set_cols_align(["c", "l", "l", "l"])
-
-            name = item[0]
-            number = item[1]
-            unit_price = item[2]
-            place = item[3]
-            table.add_row([name, number, place, unit_price])
-
-        self.label_9.setText(table.draw())
-
-        print(table.draw())
-
-
-        # self.buy_lst.append(table.draw())
-
-    # -------------------------------
-    # -------------------------------
-    # -------------------------------
-
-    def house_db(self):
-
-        self.cur = self.db.cursor()
-        self.cur.execute(f''' SELECT id, p_name, h_number, p_price FROM products ''')
-        data = self.cur.fetchall()
-        if data:
-            self.house_table.setRowCount(0)
-            self.house_table.insertRow(0)
-            for row, form in enumerate(data):
-                print(form)
-
-                for col, item in enumerate(form):
-                    self.house_table.setItem(row, col, QTableWidgetItem(str(item)))
-                    col += 1
-                row_pos = self.house_table.rowCount()
-                self.house_table.insertRow(row_pos)
-
-    def show_house_name(self):
-
-        self.cur = self.db.cursor()
-        self.cur.execute('''SELECT p_name,h_number FROM products''')
-        data = self.cur.fetchall()
-        if data:
-            self.house_name.clear()
-            for item in data:
-                if int(item[1]) > 0:
-                    self.house_name.addItem(item[0])
-
-    def move_to_store(self):
-        # Getting info from UI
-        name = self.house_name.currentText()
-        number = int(self.house_number.text().strip())
-
-        self.cur = self.db.cursor()
-        self.cur.execute(f'''SELECT h_number,s_number FROM products WHERE p_name=%s''', [name])
-        data = self.cur.fetchone()
-
-        if data:
-            h_number = int(data[0])
-            s_number = int(data[1])
-
-            if number > h_number:
-                # ---------------
-                print("Not Enough")
-                # ---------------
-            else:
-                h_number -= number
-                s_number += number
-                self.cur.execute(f'''UPDATE products set h_number=%s,s_number=%s WHERE p_name=%s''',
-                                 (h_number, s_number, name))
-                self.db.commit()
-                self.product_refresh()
-
-    def remove_product(self):
-        pass
-
-    # -------------------------------
-    # ------   Clients  -------------
-    # -------------------------------
-
-    def new_client(self):
-        # Getting info from UI
-        name = self.new_client_name.text().strip()
-        number = self.new_client_phone.text().strip()
-        bike = self.new_client_bike.text().strip()
-        color = self.new_client_color.text().strip()
-        condition = self.new_client_condition.text()
-        fix_date = self.new_client_fix_date.date().toPyDate()
-        fix = self.new_client_fix.text()
-        paid = float(self.new_client_money.text().strip())
-        cost = float(self.new_client_cost.text().strip())
-        added_time = datetime.datetime.now()
-
-        self.cur = self.db.cursor()
-        self.cur.execute(
-            '''INSERT INTO clients (c_name,c_phone,bike,bike_color,bike_condition) VALUES (%s,%s,%s,%s,%s)''',
-            (name, number, bike, color, condition))
-
-        self.cur.execute(
-            '''INSERT INTO fixes (c_name,in_date,fix_date,fix,paid,fix_cost) VALUES (%s,%s,%s,%s,%s,%s)''',
-            (name, added_time, fix_date, fix, paid, cost))
-        self.db.commit()
-        self.new_groupBox.setHidden(False)
-
-    def show_client_name(self):
-
-        self.cur = self.db.cursor()
-        self.cur.execute('''SELECT c_name FROM clients''')
-        data = self.cur.fetchall()
-        if data:
-            for item in data:
-                self.client_name.addItem(item[0])
-
-    def current_client(self):
-        # Getting info from UI
-        name = self.client_name.currentText()
-
-        self.cur = self.db.cursor()
-        self.cur.execute(f''' SELECT c_phone, bike, bike_color, bike_condition FROM clients WHERE c_name=%s''', [name])
-        client_data = self.cur.fetchone()
-        if client_data:
-            phone = client_data[0]
-            bike = client_data[1]
-            bike_color = client_data[2]
-            bike_condition = client_data[3]
-
-            self.client_phone.setText(phone)
-            self.client_bike.setText(bike)
-            self.client_color.setText(bike_color)
-            self.client_condition.setText(bike_condition)
-
-        self.cur.execute(f'''SELECT in_date,fix_date,fix,paid,fix_cost FROM fixes WHERE c_name=%s''', [name])
-        fix_data = self.cur.fetchall()
-        if fix_data:
-            self.fixes_table.setRowCount(0)
-            self.fixes_table.insertRow(0)
-            for row, form in enumerate(fix_data):
-                for col, item in enumerate(form):
-                    self.fixes_table.setItem(row, col, QTableWidgetItem(str(item)))
-                    col += 1
-                row_pos = self.fixes_table.rowCount()
-                self.fixes_table.insertRow(row_pos)
-
-    def new_fix(self):
-
-        # Getting info from UI
-        name = self.client_name.currentText()
-        fix_date = self.client_fix_date.date().toPyDate()
-        fix = self.client_fix.text()
-        paid = float(self.client_money.text().strip())
-        cost = float(self.client_cost.text().strip())
-        added_time = datetime.datetime.now()
-
-        self.cur = self.db.cursor()
-        self.cur.execute(f'''INSERT INTO fixes (c_name,in_date,fix_date,fix,paid,fix_cost) 
-        VALUES (%s,%s,%s,%s)''', (name, added_time, fix_date, fix, paid, cost))
-        self.db.commit()
-
-    def show_all_clients(self):
-
-        self.cur = self.db.cursor()
-        self.cur.execute(f''' SELECT c_name, c_phone,bike FROM clients ''')
-        client_data = self.cur.fetchall()
-
-        self.cur.execute(f''' SELECT c_name, fix,fix_date FROM fixes ''')
-        fix_data = self.cur.fetchall()
-
-        # Make data in the same list
-        # n = 0
-        # for i, j in zip(client_data, fix_data):
-        #     for item in j:
-        #         client_data[n].append(item)
-        #     n += 1
-
-        if client_data:
-            self.all_clients.setRowCount(0)
-            self.all_clients.insertRow(0)
-            for row, form in enumerate(client_data):
-                name = form[0]
-                phone = form[1]
-                bike = form[2]
-                self.all_clients.setItem(row, 0, QTableWidgetItem(str(name)))
-                self.all_clients.setItem(row, 1, QTableWidgetItem(str(phone)))
-                self.all_clients.setItem(row, 2, QTableWidgetItem(str(bike)))
-
-                # for col, item in enumerate(form):
-                #     self.store_table.setItem(row, col, QTableWidgetItem(str(item)))
-                #     col += 1
-                row_pos = self.all_clients.rowCount()
-                self.all_clients.insertRow(row_pos)
-
-    def show_client_sell_products(self):
-
-        self.cur = self.db.cursor()
-        self.cur.execute('''SELECT p_name FROM products''')
-        data = self.cur.fetchall()
-        if data:
-            for item in data:
-                self.client_sell_product.addItem(item[0])
-
-    # -------------------------------
-    # -------------------------------
-    # -------------------------------
-
-    # *******************************
-    #   Settings
-    # *******************************
-    def product_refresh(self):
-        self.search_show_products()
-        self.search()
-        self.store_db()
-        self.sell_show_products()
-        self.show_avail()
-        self.house_db()
-        self.show_house_name()
 
     def show_avail(self):
         name = self.sell_name.currentText()
@@ -802,6 +560,7 @@ class MainApp(QMainWindow, Program):
         total = number * unit_price
         self.sell_total.setText(f'{total}')
         self.all_sell_total.setText(f'{total}')
+        self.calc_dis_total()
 
     def calc_dis_total(self):
         global sell_list
@@ -849,13 +608,328 @@ class MainApp(QMainWindow, Program):
         self.sell_remove_name.clear()
         sell_list.clear()
 
+    # *******************************
+    #      Buy
+    # *******************************
+
+    def buy_adding(self):
+        global buy_list
+        """Done .
+        All things of Sell tab
+        """
+        # Getting info from UI
+        name = self.buy_name.text().strip()
+        number = self.buy_number.text().strip()
+        unit_price = self.buy_unit.text().strip()
+        place = self.buy_place.currentText()
+
+        for i in range(len(buy_list)):
+            if buy_list[i][0] == name and buy_list[i][3] == place:
+                buy_list[i][1] += int(number)
+                break
+
+        else:
+            buy_list.append([name, int(number), float(unit_price), place])
+
+        self.print_buy_table_data()
+
+    def print_buy_table_data(self):
+
+        """Print but_table Data
+        Add items in Remove ComboBox
+        """
+        global buy_list
+        self.buy_remove_name.clear()
+        self.buy_table.setRowCount(0)
+
+        for i in buy_list:
+            row_pos = self.buy_table.rowCount()
+            self.buy_table.insertRow(row_pos)
+            self.buy_table.setItem(row_pos, 0, QTableWidgetItem(str(i[0])))
+            self.buy_table.setItem(row_pos, 1, QTableWidgetItem(str(i[1])))
+            self.buy_table.setItem(row_pos, 2, QTableWidgetItem(str(i[2])))
+            self.buy_table.setItem(row_pos, 3, QTableWidgetItem(str(i[3])))
+
+            self.buy_remove_name.addItem(i[0])
+
+    def buy_remove(self):
+        global buy_list
+
+        name = self.buy_remove_name.currentText()
+        for item in buy_list:
+            if item[0] == name:
+                buy_list.remove(item)
+
+        self.print_buy_table_data()
+
+    def buy_confirm(self):
+        global buy_list
+
+        self.cur = self.db.cursor()
+
+        for i in buy_list:
+
+            name = i[0]
+            number = int(i[1])
+            unit_price = float(i[2])
+            place = i[3]
+
+            self.cur.execute(f''' SELECT s_number,h_number FROM products WHERE p_name=%s''', [name])
+            data = self.cur.fetchone()
+
+            s_number = 0
+            h_number = 0
+
+            if data:
+
+                s_number = int(data[0])
+                h_number = int(data[1])
+
+                if place == 'محل':
+                    s_number += number
+
+                else:
+                    h_number += number
+
+                self.cur.execute(
+                    f'''UPDATE products SET p_price=%s,s_number=%s WHERE p_name=%s ''', (unit_price, s_number, name))
+
+            else:
+                if place == 'محل':
+                    s_number += number
+
+                else:
+                    h_number += number
+
+                self.cur.execute('''INSERT INTO products (p_name, p_price, s_number, h_number) VALUES (%s,%s,%s,%s)''',
+                                 (name, unit_price, s_number, h_number))
+            self.db.commit()
+
+        self.buy_table.setRowCount(0)
+        self.buy_remove_name.clear()
+        self.buy_name.setText('')
+        self.buy_number.setText('')
+        self.buy_unit.setText('')
+
+        self.product_refresh()
+        self.hide_group()
+        buy_list.clear()
+
+    def print_buy_list(self):
+        global buy_list
+
+        self.buying_group.setHidden(False)
+
+        table = Texttable()
+        table.set_cols_width([25, 10, 10, 10])
+        # table.set_cols_align(["r", "r", "r", "r"])
+
+        table.header(["المنتج", "العدد", "المكان", "سعر القطعه"])
+        # table.set_cols_align(["c", "c", "c", "l"])
+
+        for item in buy_list:
+            table.set_cols_align(["c", "l", "l", "l"])
+
+            name = item[0]
+            number = item[1]
+            unit_price = item[2]
+            place = item[3]
+            table.add_row([name, number, place, unit_price])
+
+        self.label_9.setText(table.draw())
+
     def remove_all_buy(self):
         self.buy_table.setRowCount(0)
         self.buy_remove_name.clear()
         buy_list.clear()
 
+    # *******************************
+    #      Warehouse
+    # *******************************
+
+    def house_db(self):
+
+        self.cur = self.db.cursor()
+        self.cur.execute(f''' SELECT id, p_name, h_number, p_price FROM products ''')
+        data = self.cur.fetchall()
+        if data:
+            self.house_table.setRowCount(0)
+            self.house_table.insertRow(0)
+            for row, form in enumerate(data):
+
+                for col, item in enumerate(form):
+                    self.house_table.setItem(row, col, QTableWidgetItem(str(item)))
+                    col += 1
+                row_pos = self.house_table.rowCount()
+                self.house_table.insertRow(row_pos)
+
+    def show_house_name(self):
+
+        self.cur = self.db.cursor()
+        self.cur.execute('''SELECT p_name,h_number FROM products''')
+        data = self.cur.fetchall()
+        if data:
+            self.house_name.clear()
+            for item in data:
+                if int(item[1]) > 0:
+                    self.house_name.addItem(item[0])
+
+    def move_to_store(self):
+        # Getting info from UI
+        name = self.house_name.currentText()
+        number = int(self.house_number.text().strip())
+
+        self.cur = self.db.cursor()
+        self.cur.execute(f'''SELECT h_number,s_number FROM products WHERE p_name=%s''', [name])
+        data = self.cur.fetchone()
+
+        if data:
+            h_number = int(data[0])
+            s_number = int(data[1])
+
+            if number > h_number:
+                # ---------------
+                print("Not Enough")
+                # ---------------
+            else:
+                h_number -= number
+                s_number += number
+                self.cur.execute(f'''UPDATE products set h_number=%s,s_number=%s WHERE p_name=%s''',
+                                 (h_number, s_number, name))
+                self.db.commit()
+                self.product_refresh()
+
+    # *******************************
+    #      Clients
+    # *******************************
+
+    def new_client(self):
+        # Getting info from UI
+        name = self.new_client_name.text().strip()
+        number = self.new_client_phone.text().strip()
+        bike = self.new_client_bike.text().strip()
+        color = self.new_client_color.text().strip()
+        condition = self.new_client_condition.text()
+        fix_date = self.new_client_fix_date.date().toPyDate()
+        fix = self.new_client_fix.text()
+        paid = float(self.new_client_money.text().strip())
+        cost = float(self.new_client_cost.text().strip())
+        added_time = datetime.datetime.now()
+
+        self.cur = self.db.cursor()
+        self.cur.execute(
+            '''INSERT INTO clients (c_name,c_phone,bike,bike_color,bike_condition,fix,fix_date) 
+            VALUES (%s,%s,%s,%s,%s,%s,%s)''', (name, number, bike, color, condition, fix, fix_date))
+
+        self.cur.execute(
+            '''INSERT INTO fixes (c_name,in_date,fix_date,fix,paid,fix_cost) VALUES (%s,%s,%s,%s,%s,%s)''',
+            (name, added_time, fix_date, fix, paid, cost))
+        self.db.commit()
+        self.new_groupBox.setHidden(False)
+
+    def show_client_name(self):
+
+        self.cur = self.db.cursor()
+        self.cur.execute('''SELECT c_name FROM clients''')
+        data = self.cur.fetchall()
+        if data:
+            self.client_name.clear()
+            for item in data:
+                self.client_name.addItem(item[0])
+
+    def current_client(self):
+        # Getting info from UI
+        name = self.client_name.currentText()
+
+        self.cur = self.db.cursor()
+        self.cur.execute(f''' SELECT c_phone, bike, bike_color, bike_condition FROM clients WHERE c_name=%s''', [name])
+        client_data = self.cur.fetchone()
+        if client_data:
+            phone = client_data[0]
+            bike = client_data[1]
+            bike_color = client_data[2]
+            bike_condition = client_data[3]
+
+            self.client_phone.setText(phone)
+            self.client_bike.setText(bike)
+            self.client_color.setText(bike_color)
+            self.client_condition.setText(bike_condition)
+
+        self.cur.execute(f'''SELECT in_date,fix_date,fix,paid,fix_cost FROM fixes WHERE c_name=%s''', [name])
+        fix_data = self.cur.fetchall()
+        if fix_data:
+            self.fixes_table.setRowCount(0)
+            self.fixes_table.insertRow(0)
+            for row, form in enumerate(fix_data):
+                for col, item in enumerate(form):
+                    self.fixes_table.setItem(row, col, QTableWidgetItem(str(item)))
+                    col += 1
+                row_pos = self.fixes_table.rowCount()
+                self.fixes_table.insertRow(row_pos)
+
+    def new_fix(self):
+
+        # Getting info from UI
+        name = self.client_name.currentText()
+        fix_date = self.client_fix_date.date().toPyDate()
+        fix = self.client_fix.text()
+        paid = float(self.client_money.text().strip())
+        cost = float(self.client_cost.text().strip())
+        added_time = datetime.datetime.now()
+
+        self.cur = self.db.cursor()
+        self.cur.execute(f'''INSERT INTO fixes (c_name,in_date,fix_date,fix,paid,fix_cost) 
+        VALUES (%s,%s,%s,%s,%s,%s)''', [name, added_time, fix_date, fix, paid, cost])
+
+        self.cur.execute('''UPDATE clients SET fix=%s, fix_date=%s WHERE c_name=%s''', (fix, fix_date, name))
+        self.db.commit()
+
+        self.show_all_clients()
+        self.current_client()
+        self.groupBox.setHidden(True)
+        self.client_fix.setText('')
+        self.client_money.setText('')
+        self.client_cost.setText('')
+
+    def update_client(self):
+        name = self.client_name.currentText()
+        phone = self.client_phone.text()
+        bike = self.client_bike.text()
+        color = self.client_color.text()
+        condition = self.client_condition.text()
+
+        self.cur = self.db.cursor()
+        self.cur.execute(
+            '''UPDATE clients SET c_phone=%s, bike=%s, bike_color=%s, bike_condition=%s WHERE c_name=%s''',
+            [phone, bike, color, condition, name])
+        self.db.commit()
+
+    def show_all_clients(self):
+
+        self.cur = self.db.cursor()
+        self.cur.execute(f''' SELECT c_name, c_phone, bike,fix_date, fix  FROM clients ''')
+        client_data = self.cur.fetchall()
+
+        if client_data:
+            self.all_clients.setRowCount(0)
+            self.all_clients.insertRow(0)
+            for row, form in enumerate(client_data):
+                name = form[0]
+                phone = form[1]
+                bike = form[2]
+                fix_date = form[3]
+                fix = form[4]
+                self.all_clients.setItem(row, 0, QTableWidgetItem(str(name)))
+                self.all_clients.setItem(row, 1, QTableWidgetItem(str(phone)))
+                self.all_clients.setItem(row, 2, QTableWidgetItem(str(bike)))
+                self.all_clients.setItem(row, 3, QTableWidgetItem(str(fix_date)))
+                self.all_clients.setItem(row, 4, QTableWidgetItem(str(fix)))
+
+                row_pos = self.all_clients.rowCount()
+                self.all_clients.insertRow(row_pos)
+
     def go_to_sell(self):
-        self.mainTab.setCurrentIndex(2)
+        self.mainTab.setCurrentIndex(3)
         self.new_client_name.setText('')
         self.new_client_phone.setText('')
         self.new_client_bike.setText('')
@@ -866,6 +940,93 @@ class MainApp(QMainWindow, Program):
         self.new_client_cost.setText('')
         self.show_client_name()
         self.show_all_clients()
+        self.hide_client_group()
+
+    # *******************************
+    #   Reshow Products Data
+    # *******************************
+
+    def product_refresh(self):
+        self.search_show_products()
+        self.search()
+        self.store_db()
+        self.sell_show_products()
+        self.show_avail()
+        self.house_db()
+        self.show_house_name()
+
+    # *******************************
+    #   Sales
+    # *******************************
+
+    def get_sales_date(self):
+
+        date = self.sales_date.currentIndex()
+        today = datetime.datetime.today()
+
+        if date == 0:
+            today = today.date()
+        elif date == 1:
+            today = (today - datetime.timedelta(days=30)).date()
+        elif date == 2:
+            today = (today - datetime.timedelta(days=180)).date()
+        elif date == 3:
+            today = (today - datetime.timedelta(days=365)).date()
+        elif date == 4:
+            today = (today - datetime.timedelta(weeks=10000)).date()
+
+        self.cur = self.db.cursor()
+        self.cur.execute('''SELECT sale_date, paid, text FROM sales WHERE sale_date>=%s ORDER BY  sale_date DESC''',
+                         [today])
+
+        data = self.cur.fetchall()
+
+        if data:
+            self.sales_table.setRowCount(0)
+            for row in data:
+                date = row[0]
+                money = row[1]
+                text = row[2]
+
+                row_pos = self.sales_table.rowCount()
+                self.sales_table.insertRow(row_pos)
+                self.sales_table.setItem(row_pos, 0, QTableWidgetItem(str(date)))
+                self.sales_table.setItem(row_pos, 2, QTableWidgetItem(str(money)))
+                self.sales_table.setItem(row_pos, 1, QTableWidgetItem(str(text)))
+            self.calc_sales_total()
+
+    def add_operation(self):
+        money = self.op_money.text()
+        operation = self.operation.currentIndex()
+        text = self.op_text.text()
+        date = datetime.datetime.today()
+
+        self.cur = self.db.cursor()
+        self.cur.execute('''INSERT INTO sales (sale_date, operation, paid, text) VALUES (%s,%s,%s,%s)''',
+                         (date, operation, money, text))
+        self.db.commit()
+        self.calc_sales_total()
+        self.get_sales_date()
+
+        self.op_money.setText('')
+        self.op_text.setText('')
+
+    def calc_sales_total(self):
+
+        self.cur = self.db.cursor()
+        self.cur.execute('''SELECT paid,operation FROM sales''')
+        data = self.cur.fetchall()
+        total = 0
+        if data:
+            for item in data:
+                paid = float(item[0])
+                operation = item[1]
+                if operation == '0' or operation == 'buy':
+                    total -= paid
+                elif operation == '1' or operation == 'sell':
+                    total += paid
+
+        self.sales_total.setText(f'{total}')
 
 
 def main():
