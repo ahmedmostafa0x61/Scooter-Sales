@@ -10,25 +10,25 @@
     <x>0</x>
     <y>0</y>
     <width>1024</width>
-    <height>768</height>
+    <height>700</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
     <width>1024</width>
-    <height>768</height>
+    <height>700</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
     <width>1024</width>
-    <height>768</height>
+    <height>700</height>
    </size>
   </property>
   <property name="font">
    <font>
-    <family>Led Italic Font</family>
-    <pointsize>9</pointsize>
+    <family>MS Shell Dlg 2</family>
+    <pointsize>13</pointsize>
    </font>
   </property>
   <property name="windowTitle">
@@ -87,15 +87,15 @@ QGroupBox{background-color:#4CA1AF;
     <property name="geometry">
      <rect>
       <x>900</x>
-      <y>210</y>
+      <y>200</y>
       <width>100</width>
       <height>75</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <family>Led Italic Font</family>
-      <pointsize>9</pointsize>
+      <family>MS Shell Dlg 2</family>
+      <pointsize>10</pointsize>
      </font>
     </property>
     <property name="text">
@@ -108,13 +108,13 @@ QGroupBox{background-color:#4CA1AF;
       <x>10</x>
       <y>10</y>
       <width>881</width>
-      <height>691</height>
+      <height>621</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <family>Led Italic Font</family>
-      <pointsize>9</pointsize>
+      <family>MS Shell Dlg 2</family>
+      <pointsize>10</pointsize>
      </font>
     </property>
     <property name="layoutDirection">
@@ -127,7 +127,7 @@ QGroupBox{background-color:#4CA1AF;
      <enum>QTabWidget::Triangular</enum>
     </property>
     <property name="currentIndex">
-     <number>6</number>
+     <number>4</number>
     </property>
     <property name="elideMode">
      <enum>Qt::ElideNone</enum>
@@ -145,11 +145,17 @@ QGroupBox{background-color:#4CA1AF;
      <widget class="QTableWidget" name="search_table">
       <property name="geometry">
        <rect>
-        <x>190</x>
-        <y>100</y>
+        <x>180</x>
+        <y>70</y>
         <width>650</width>
         <height>511</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>MS Shell Dlg 2</family>
+        <pointsize>10</pointsize>
+       </font>
       </property>
       <property name="styleSheet">
        <string notr="true">background-color:#FFFFFF</string>
@@ -171,7 +177,7 @@ QGroupBox{background-color:#4CA1AF;
        </property>
        <property name="font">
         <font>
-         <family>Led Italic Font</family>
+         <family>MS Shell Dlg 2</family>
         </font>
        </property>
       </column>
@@ -195,41 +201,30 @@ QGroupBox{background-color:#4CA1AF;
       <property name="geometry">
        <rect>
         <x>720</x>
-        <y>40</y>
+        <y>20</y>
         <width>91</width>
         <height>41</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <family>Led Italic Font</family>
-        <pointsize>9</pointsize>
+        <family>MS Shell Dlg 2</family>
+        <pointsize>10</pointsize>
        </font>
       </property>
       <property name="text">
        <string>المنتج</string>
       </property>
      </widget>
-     <widget class="QComboBox" name="search_name">
+     <widget class="QLineEdit" name="search_name">
       <property name="geometry">
        <rect>
-        <x>600</x>
-        <y>40</y>
-        <width>121</width>
+        <x>580</x>
+        <y>20</y>
+        <width>171</width>
         <height>41</height>
        </rect>
       </property>
-      <property name="font">
-       <font>
-        <family>Led Italic Font</family>
-        <pointsize>8</pointsize>
-       </font>
-      </property>
-      <item>
-       <property name="text">
-        <string>الكل</string>
-       </property>
-      </item>
      </widget>
     </widget>
     <widget class="QWidget" name="store_tab">
@@ -242,8 +237,13 @@ QGroupBox{background-color:#4CA1AF;
         <x>330</x>
         <y>40</y>
         <width>500</width>
-        <height>551</height>
+        <height>511</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
       </property>
       <attribute name="horizontalHeaderStretchLastSection">
        <bool>true</bool>
@@ -259,7 +259,7 @@ QGroupBox{background-color:#4CA1AF;
        </property>
        <property name="font">
         <font>
-         <family>Led Italic Font</family>
+         <family>MS Shell Dlg 2</family>
         </font>
        </property>
       </column>
@@ -282,15 +282,16 @@ QGroupBox{background-color:#4CA1AF;
      <widget class="QLabel" name="label_8">
       <property name="geometry">
        <rect>
-        <x>730</x>
-        <y>80</y>
+        <x>740</x>
+        <y>70</y>
         <width>95</width>
         <height>40</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <family>Led Italic Font</family>
+        <family>MS Shell Dlg 2</family>
+        <pointsize>10</pointsize>
        </font>
       </property>
       <property name="text">
@@ -300,15 +301,16 @@ QGroupBox{background-color:#4CA1AF;
      <widget class="QLabel" name="label_6">
       <property name="geometry">
        <rect>
-        <x>730</x>
-        <y>120</y>
+        <x>740</x>
+        <y>110</y>
         <width>95</width>
         <height>40</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <family>Led Italic Font</family>
+        <family>MS Shell Dlg 2</family>
+        <pointsize>10</pointsize>
        </font>
       </property>
       <property name="text">
@@ -318,25 +320,32 @@ QGroupBox{background-color:#4CA1AF;
      <widget class="QLineEdit" name="buy_number">
       <property name="geometry">
        <rect>
-        <x>620</x>
-        <y>80</y>
+        <x>630</x>
+        <y>70</y>
         <width>110</width>
         <height>35</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>MS Shell Dlg 2</family>
+        <pointsize>10</pointsize>
+       </font>
       </property>
      </widget>
      <widget class="QLabel" name="label_7">
       <property name="geometry">
        <rect>
-        <x>730</x>
-        <y>40</y>
+        <x>740</x>
+        <y>30</y>
         <width>95</width>
         <height>40</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <family>Led Italic Font</family>
+        <family>MS Shell Dlg 2</family>
+        <pointsize>10</pointsize>
        </font>
       </property>
       <property name="text">
@@ -346,11 +355,17 @@ QGroupBox{background-color:#4CA1AF;
      <widget class="QLineEdit" name="buy_unit">
       <property name="geometry">
        <rect>
-        <x>620</x>
-        <y>120</y>
+        <x>630</x>
+        <y>110</y>
         <width>110</width>
         <height>35</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>MS Shell Dlg 2</family>
+        <pointsize>10</pointsize>
+       </font>
       </property>
       <property name="readOnly">
        <bool>false</bool>
@@ -359,11 +374,17 @@ QGroupBox{background-color:#4CA1AF;
      <widget class="QLineEdit" name="buy_name">
       <property name="geometry">
        <rect>
-        <x>620</x>
-        <y>40</y>
+        <x>630</x>
+        <y>30</y>
         <width>110</width>
         <height>35</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>MS Shell Dlg 2</family>
+        <pointsize>10</pointsize>
+       </font>
       </property>
       <property name="alignment">
        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -372,15 +393,16 @@ QGroupBox{background-color:#4CA1AF;
      <widget class="QPushButton" name="buy_ok">
       <property name="geometry">
        <rect>
-        <x>470</x>
-        <y>550</y>
+        <x>480</x>
+        <y>530</y>
         <width>161</width>
         <height>61</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <family>Led Italic Font</family>
+        <family>MS Shell Dlg 2</family>
+        <pointsize>10</pointsize>
        </font>
       </property>
       <property name="text">
@@ -390,15 +412,16 @@ QGroupBox{background-color:#4CA1AF;
      <widget class="QComboBox" name="buy_place">
       <property name="geometry">
        <rect>
-        <x>650</x>
-        <y>170</y>
+        <x>640</x>
+        <y>160</y>
         <width>141</width>
         <height>51</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <family>Led Italic Font</family>
+        <family>MS Shell Dlg 2</family>
+        <pointsize>10</pointsize>
        </font>
       </property>
       <item>
@@ -416,10 +439,16 @@ QGroupBox{background-color:#4CA1AF;
       <property name="geometry">
        <rect>
         <x>300</x>
-        <y>240</y>
+        <y>230</y>
         <width>550</width>
         <height>291</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>MS Shell Dlg 2</family>
+        <pointsize>10</pointsize>
+       </font>
       </property>
       <attribute name="horizontalHeaderStretchLastSection">
        <bool>true</bool>
@@ -430,7 +459,7 @@ QGroupBox{background-color:#4CA1AF;
        </property>
        <property name="font">
         <font>
-         <family>Led Italic Font</family>
+         <family>MS Shell Dlg 2</family>
         </font>
        </property>
       </column>
@@ -450,7 +479,7 @@ QGroupBox{background-color:#4CA1AF;
        </property>
        <property name="font">
         <font>
-         <family>Led Italic Font</family>
+         <family>MS Shell Dlg 2</family>
         </font>
        </property>
       </column>
@@ -466,7 +495,8 @@ QGroupBox{background-color:#4CA1AF;
       </property>
       <property name="font">
        <font>
-        <family>Led Italic Font</family>
+        <family>MS Shell Dlg 2</family>
+        <pointsize>10</pointsize>
        </font>
       </property>
       <property name="text">
@@ -484,7 +514,8 @@ QGroupBox{background-color:#4CA1AF;
       </property>
       <property name="font">
        <font>
-        <family>Led Italic Font</family>
+        <family>MS Shell Dlg 2</family>
+        <pointsize>10</pointsize>
        </font>
       </property>
       <property name="text">
@@ -505,7 +536,8 @@ QGroupBox{background-color:#4CA1AF;
       </property>
       <property name="font">
        <font>
-        <family>Led Italic Font</family>
+        <family>MS Shell Dlg 2</family>
+        <pointsize>10</pointsize>
        </font>
       </property>
      </widget>
@@ -520,7 +552,8 @@ QGroupBox{background-color:#4CA1AF;
       </property>
       <property name="font">
        <font>
-        <family>Led Italic Font</family>
+        <family>MS Shell Dlg 2</family>
+        <pointsize>10</pointsize>
        </font>
       </property>
       <property name="text">
@@ -530,11 +563,17 @@ QGroupBox{background-color:#4CA1AF;
      <widget class="QGroupBox" name="buying_group">
       <property name="geometry">
        <rect>
-        <x>160</x>
+        <x>0</x>
         <y>10</y>
-        <width>650</width>
-        <height>640</height>
+        <width>610</width>
+        <height>580</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>MS Shell Dlg 2</family>
+        <pointsize>10</pointsize>
+       </font>
       </property>
       <property name="styleSheet">
        <string notr="true"/>
@@ -545,11 +584,17 @@ QGroupBox{background-color:#4CA1AF;
       <widget class="QDialogButtonBox" name="accept_box">
        <property name="geometry">
         <rect>
-         <x>220</x>
-         <y>590</y>
+         <x>210</x>
+         <y>530</y>
          <width>211</width>
          <height>41</height>
         </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>MS Shell Dlg 2</family>
+         <pointsize>10</pointsize>
+        </font>
        </property>
        <property name="layoutDirection">
         <enum>Qt::LeftToRight</enum>
@@ -569,32 +614,48 @@ height: 30px;
       <widget class="QLabel" name="label">
        <property name="geometry">
         <rect>
-         <x>320</x>
+         <x>290</x>
          <y>10</y>
          <width>291</width>
-         <height>41</height>
+         <height>31</height>
         </rect>
        </property>
        <property name="font">
         <font>
-         <pointsize>13</pointsize>
+         <family>MS Shell Dlg 2</family>
+         <pointsize>10</pointsize>
         </font>
        </property>
        <property name="text">
         <string>سيتم اضافه المنتجات التاليه :</string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_9">
+      <widget class="QTextBrowser" name="label_9">
        <property name="geometry">
         <rect>
-         <x>64</x>
-         <y>70</y>
-         <width>531</width>
-         <height>501</height>
+         <x>40</x>
+         <y>40</y>
+         <width>530</width>
+         <height>481</height>
         </rect>
        </property>
-       <property name="text">
-        <string/>
+       <property name="font">
+        <font>
+         <family>MS Shell Dlg 2</family>
+         <pointsize>10</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color:rgba(0,0,0,0)</string>
+       </property>
+       <property name="html">
+        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:10pt; font-weight:600; font-style:normal;&quot;&gt;
+&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:7.8pt; font-weight:400;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
       </widget>
      </widget>
@@ -609,7 +670,8 @@ height: 30px;
       </property>
       <property name="font">
        <font>
-        <family>Led Italic Font</family>
+        <family>MS Shell Dlg 2</family>
+        <pointsize>10</pointsize>
        </font>
       </property>
       <property name="text">
@@ -639,15 +701,16 @@ height: 30px;
      <widget class="QLabel" name="sell_name_label">
       <property name="geometry">
        <rect>
-        <x>720</x>
-        <y>40</y>
+        <x>750</x>
+        <y>20</y>
         <width>95</width>
         <height>40</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <family>Led Italic Font</family>
+        <family>MS Shell Dlg 2</family>
+        <pointsize>10</pointsize>
        </font>
       </property>
       <property name="text">
@@ -657,11 +720,17 @@ height: 30px;
      <widget class="QComboBox" name="sell_name">
       <property name="geometry">
        <rect>
-        <x>615</x>
-        <y>40</y>
+        <x>645</x>
+        <y>20</y>
         <width>110</width>
         <height>35</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>MS Shell Dlg 2</family>
+        <pointsize>10</pointsize>
+       </font>
       </property>
       <property name="layoutDirection">
        <enum>Qt::RightToLeft</enum>
@@ -670,15 +739,16 @@ height: 30px;
      <widget class="QLabel" name="label_2">
       <property name="geometry">
        <rect>
-        <x>360</x>
-        <y>40</y>
+        <x>390</x>
+        <y>20</y>
         <width>100</width>
         <height>40</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <family>Led Italic Font</family>
+        <family>MS Shell Dlg 2</family>
+        <pointsize>10</pointsize>
        </font>
       </property>
       <property name="text">
@@ -688,15 +758,16 @@ height: 30px;
      <widget class="QLCDNumber" name="sell_available">
       <property name="geometry">
        <rect>
-        <x>271</x>
-        <y>40</y>
+        <x>301</x>
+        <y>20</y>
         <width>91</width>
         <height>31</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <pointsize>8</pointsize>
+        <family>MS Shell Dlg 2</family>
+        <pointsize>10</pointsize>
        </font>
       </property>
       <property name="styleSheet">
@@ -727,15 +798,16 @@ height: 30px;
      <widget class="QLabel" name="label_3">
       <property name="geometry">
        <rect>
-        <x>720</x>
-        <y>80</y>
+        <x>750</x>
+        <y>60</y>
         <width>95</width>
         <height>40</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <family>Led Italic Font</family>
+        <family>MS Shell Dlg 2</family>
+        <pointsize>10</pointsize>
        </font>
       </property>
       <property name="text">
@@ -745,11 +817,17 @@ height: 30px;
      <widget class="QLineEdit" name="sell_number">
       <property name="geometry">
        <rect>
-        <x>630</x>
-        <y>80</y>
+        <x>660</x>
+        <y>60</y>
         <width>95</width>
         <height>35</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>MS Shell Dlg 2</family>
+        <pointsize>10</pointsize>
+       </font>
       </property>
       <property name="layoutDirection">
        <enum>Qt::RightToLeft</enum>
@@ -764,15 +842,16 @@ height: 30px;
      <widget class="QLabel" name="label_4">
       <property name="geometry">
        <rect>
-        <x>360</x>
-        <y>80</y>
+        <x>390</x>
+        <y>60</y>
         <width>100</width>
         <height>40</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <family>Led Italic Font</family>
+        <family>MS Shell Dlg 2</family>
+        <pointsize>10</pointsize>
        </font>
       </property>
       <property name="text">
@@ -782,11 +861,17 @@ height: 30px;
      <widget class="QLineEdit" name="sell_unit">
       <property name="geometry">
        <rect>
-        <x>270</x>
-        <y>80</y>
+        <x>300</x>
+        <y>60</y>
         <width>95</width>
         <height>35</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>MS Shell Dlg 2</family>
+        <pointsize>10</pointsize>
+       </font>
       </property>
       <property name="frame">
        <bool>false</bool>
@@ -798,15 +883,16 @@ height: 30px;
      <widget class="QLabel" name="label_5">
       <property name="geometry">
        <rect>
-        <x>720</x>
-        <y>110</y>
+        <x>750</x>
+        <y>90</y>
         <width>95</width>
         <height>40</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <family>Led Italic Font</family>
+        <family>MS Shell Dlg 2</family>
+        <pointsize>10</pointsize>
        </font>
       </property>
       <property name="text">
@@ -816,11 +902,17 @@ height: 30px;
      <widget class="QLineEdit" name="sell_total">
       <property name="geometry">
        <rect>
-        <x>630</x>
-        <y>120</y>
+        <x>660</x>
+        <y>100</y>
         <width>95</width>
         <height>35</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>MS Shell Dlg 2</family>
+        <pointsize>10</pointsize>
+       </font>
       </property>
       <property name="layoutDirection">
        <enum>Qt::RightToLeft</enum>
@@ -836,14 +928,15 @@ height: 30px;
       <property name="geometry">
        <rect>
         <x>290</x>
-        <y>180</y>
+        <y>150</y>
         <width>161</width>
         <height>61</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <family>Led Italic Font</family>
+        <family>MS Shell Dlg 2</family>
+        <pointsize>10</pointsize>
        </font>
       </property>
       <property name="text">
@@ -854,10 +947,16 @@ height: 30px;
       <property name="geometry">
        <rect>
         <x>240</x>
-        <y>250</y>
+        <y>220</y>
         <width>621</width>
         <height>251</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>MS Shell Dlg 2</family>
+        <pointsize>10</pointsize>
+       </font>
       </property>
       <attribute name="horizontalHeaderStretchLastSection">
        <bool>true</bool>
@@ -868,7 +967,7 @@ height: 30px;
        </property>
        <property name="font">
         <font>
-         <family>Led Italic Font</family>
+         <family>MS Shell Dlg 2</family>
         </font>
        </property>
       </column>
@@ -896,15 +995,16 @@ height: 30px;
      <widget class="QPushButton" name="sell_ok">
       <property name="geometry">
        <rect>
-        <x>350</x>
-        <y>550</y>
+        <x>290</x>
+        <y>510</y>
         <width>161</width>
         <height>61</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <family>Led Italic Font</family>
+        <family>MS Shell Dlg 2</family>
+        <pointsize>10</pointsize>
        </font>
       </property>
       <property name="text">
@@ -915,14 +1015,15 @@ height: 30px;
       <property name="geometry">
        <rect>
         <x>30</x>
-        <y>340</y>
+        <y>300</y>
         <width>71</width>
         <height>40</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <family>Led Italic Font</family>
+        <family>MS Shell Dlg 2</family>
+        <pointsize>10</pointsize>
        </font>
       </property>
       <property name="text">
@@ -933,14 +1034,15 @@ height: 30px;
       <property name="geometry">
        <rect>
         <x>110</x>
-        <y>340</y>
+        <y>300</y>
         <width>121</width>
         <height>41</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <family>Led Italic Font</family>
+        <family>MS Shell Dlg 2</family>
+        <pointsize>10</pointsize>
        </font>
       </property>
      </widget>
@@ -948,14 +1050,14 @@ height: 30px;
       <property name="geometry">
        <rect>
         <x>70</x>
-        <y>280</y>
+        <y>240</y>
         <width>141</width>
         <height>41</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <family>Led Italic Font</family>
+        <family>MS Shell Dlg 2</family>
         <pointsize>10</pointsize>
        </font>
       </property>
@@ -969,15 +1071,16 @@ height: 30px;
      <widget class="QLabel" name="label_10">
       <property name="geometry">
        <rect>
-        <x>720</x>
-        <y>160</y>
+        <x>750</x>
+        <y>140</y>
         <width>95</width>
         <height>40</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <family>Led Italic Font</family>
+        <family>MS Shell Dlg 2</family>
+        <pointsize>10</pointsize>
        </font>
       </property>
       <property name="text">
@@ -987,11 +1090,17 @@ height: 30px;
      <widget class="QLineEdit" name="sell_dis">
       <property name="geometry">
        <rect>
-        <x>630</x>
-        <y>160</y>
+        <x>660</x>
+        <y>140</y>
         <width>95</width>
         <height>35</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>MS Shell Dlg 2</family>
+        <pointsize>10</pointsize>
+       </font>
       </property>
       <property name="layoutDirection">
        <enum>Qt::RightToLeft</enum>
@@ -1009,11 +1118,17 @@ height: 30px;
      <widget class="QLineEdit" name="sell_total_after">
       <property name="geometry">
        <rect>
-        <x>630</x>
-        <y>200</y>
+        <x>660</x>
+        <y>180</y>
         <width>95</width>
         <height>35</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>MS Shell Dlg 2</family>
+        <pointsize>10</pointsize>
+       </font>
       </property>
       <property name="layoutDirection">
        <enum>Qt::RightToLeft</enum>
@@ -1028,15 +1143,16 @@ height: 30px;
      <widget class="QLabel" name="label_11">
       <property name="geometry">
        <rect>
-        <x>720</x>
-        <y>200</y>
+        <x>750</x>
+        <y>180</y>
         <width>95</width>
         <height>40</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <family>Led Italic Font</family>
+        <family>MS Shell Dlg 2</family>
+        <pointsize>10</pointsize>
        </font>
       </property>
       <property name="text">
@@ -1046,11 +1162,17 @@ height: 30px;
      <widget class="QGroupBox" name="selling_group">
       <property name="geometry">
        <rect>
-        <x>160</x>
-        <y>630</y>
-        <width>650</width>
-        <height>640</height>
+        <x>150</x>
+        <y>10</y>
+        <width>611</width>
+        <height>581</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>MS Shell Dlg 2</family>
+        <pointsize>10</pointsize>
+       </font>
       </property>
       <property name="styleSheet">
        <string notr="true"/>
@@ -1061,11 +1183,17 @@ height: 30px;
       <widget class="QDialogButtonBox" name="sell_accept_box">
        <property name="geometry">
         <rect>
-         <x>220</x>
-         <y>590</y>
+         <x>200</x>
+         <y>520</y>
          <width>211</width>
          <height>41</height>
         </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>MS Shell Dlg 2</family>
+         <pointsize>10</pointsize>
+        </font>
        </property>
        <property name="layoutDirection">
         <enum>Qt::LeftToRight</enum>
@@ -1085,32 +1213,41 @@ height: 30px;
       <widget class="QLabel" name="label_37">
        <property name="geometry">
         <rect>
-         <x>350</x>
+         <x>320</x>
          <y>10</y>
          <width>261</width>
-         <height>41</height>
+         <height>21</height>
         </rect>
        </property>
        <property name="font">
         <font>
-         <pointsize>13</pointsize>
+         <family>MS Shell Dlg 2</family>
+         <pointsize>10</pointsize>
         </font>
        </property>
        <property name="text">
         <string>سيتم بيع المنتجات التاليه :</string>
        </property>
       </widget>
-      <widget class="QLabel" name="selling_label">
+      <widget class="QTextBrowser" name="selling_label">
        <property name="geometry">
         <rect>
-         <x>64</x>
-         <y>70</y>
-         <width>531</width>
-         <height>501</height>
+         <x>40</x>
+         <y>40</y>
+         <width>530</width>
+         <height>480</height>
         </rect>
        </property>
-       <property name="text">
-        <string/>
+       <property name="font">
+        <font>
+         <family>MS Shell Dlg 2</family>
+         <pointsize>10</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color:rgba(0,0,0,0)</string>
        </property>
       </widget>
      </widget>
@@ -1118,10 +1255,16 @@ height: 30px;
       <property name="geometry">
        <rect>
         <x>640</x>
-        <y>550</y>
+        <y>520</y>
         <width>95</width>
         <height>35</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>MS Shell Dlg 2</family>
+        <pointsize>10</pointsize>
+       </font>
       </property>
       <property name="inputMethodHints">
        <set>Qt::ImhDigitsOnly</set>
@@ -1137,14 +1280,15 @@ height: 30px;
       <property name="geometry">
        <rect>
         <x>740</x>
-        <y>550</y>
+        <y>520</y>
         <width>105</width>
         <height>40</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <family>Led Italic Font</family>
+        <family>MS Shell Dlg 2</family>
+        <pointsize>10</pointsize>
        </font>
       </property>
       <property name="text">
@@ -1155,14 +1299,15 @@ height: 30px;
       <property name="geometry">
        <rect>
         <x>740</x>
-        <y>590</y>
+        <y>560</y>
         <width>105</width>
         <height>40</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <family>Led Italic Font</family>
+        <family>MS Shell Dlg 2</family>
+        <pointsize>10</pointsize>
        </font>
       </property>
       <property name="text">
@@ -1173,10 +1318,16 @@ height: 30px;
       <property name="geometry">
        <rect>
         <x>640</x>
-        <y>510</y>
+        <y>480</y>
         <width>95</width>
         <height>35</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>MS Shell Dlg 2</family>
+        <pointsize>10</pointsize>
+       </font>
       </property>
       <property name="readOnly">
        <bool>true</bool>
@@ -1186,14 +1337,15 @@ height: 30px;
       <property name="geometry">
        <rect>
         <x>740</x>
-        <y>510</y>
+        <y>480</y>
         <width>105</width>
         <height>40</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <family>Led Italic Font</family>
+        <family>MS Shell Dlg 2</family>
+        <pointsize>10</pointsize>
        </font>
       </property>
       <property name="text">
@@ -1204,10 +1356,16 @@ height: 30px;
       <property name="geometry">
        <rect>
         <x>640</x>
-        <y>590</y>
+        <y>560</y>
         <width>95</width>
         <height>35</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>MS Shell Dlg 2</family>
+        <pointsize>10</pointsize>
+       </font>
       </property>
       <property name="readOnly">
        <bool>true</bool>
@@ -1217,14 +1375,15 @@ height: 30px;
       <property name="geometry">
        <rect>
         <x>40</x>
-        <y>430</y>
+        <y>390</y>
         <width>171</width>
         <height>41</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <family>Led Italic Font</family>
+        <family>MS Shell Dlg 2</family>
+        <pointsize>10</pointsize>
        </font>
       </property>
       <property name="text">
@@ -1234,11 +1393,17 @@ height: 30px;
      <widget class="QGroupBox" name="groupBox_2">
       <property name="geometry">
        <rect>
-        <x>530</x>
-        <y>140</y>
+        <x>560</x>
+        <y>120</y>
         <width>100</width>
         <height>70</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>MS Shell Dlg 2</family>
+        <pointsize>10</pointsize>
+       </font>
       </property>
       <property name="styleSheet">
        <string notr="true">border:0px;
@@ -1261,7 +1426,8 @@ background:#2F91A5;</string>
        </property>
        <property name="font">
         <font>
-         <family>Led Italic Font</family>
+         <family>MS Shell Dlg 2</family>
+         <pointsize>10</pointsize>
         </font>
        </property>
        <property name="text">
@@ -1279,7 +1445,8 @@ background:#2F91A5;</string>
        </property>
        <property name="font">
         <font>
-         <family>Led Italic Font</family>
+         <family>MS Shell Dlg 2</family>
+         <pointsize>10</pointsize>
         </font>
        </property>
        <property name="text">
@@ -1294,10 +1461,16 @@ background:#2F91A5;</string>
       <property name="geometry">
        <rect>
         <x>530</x>
-        <y>530</y>
+        <y>500</y>
         <width>100</width>
         <height>70</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>MS Shell Dlg 2</family>
+        <pointsize>10</pointsize>
+       </font>
       </property>
       <property name="styleSheet">
        <string notr="true">border:0px;
@@ -1318,7 +1491,8 @@ background:#2F91A5;
        </property>
        <property name="font">
         <font>
-         <family>Led Italic Font</family>
+         <family>MS Shell Dlg 2</family>
+         <pointsize>10</pointsize>
         </font>
        </property>
        <property name="text">
@@ -1336,7 +1510,8 @@ background:#2F91A5;
        </property>
        <property name="font">
         <font>
-         <family>Led Italic Font</family>
+         <family>MS Shell Dlg 2</family>
+         <pointsize>10</pointsize>
         </font>
        </property>
        <property name="text">
@@ -1386,10 +1561,16 @@ background:#2F91A5;
       <property name="geometry">
        <rect>
         <x>280</x>
-        <y>40</y>
+        <y>20</y>
         <width>500</width>
         <height>361</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>MS Shell Dlg 2</family>
+        <pointsize>10</pointsize>
+       </font>
       </property>
       <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
        <bool>false</bool>
@@ -1408,7 +1589,7 @@ background:#2F91A5;
        </property>
        <property name="font">
         <font>
-         <family>Led Italic Font</family>
+         <family>MS Shell Dlg 2</family>
         </font>
        </property>
       </column>
@@ -1427,14 +1608,14 @@ background:#2F91A5;
       <property name="geometry">
        <rect>
         <x>380</x>
-        <y>410</y>
+        <y>380</y>
         <width>131</width>
         <height>41</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <family>Led Italic Font</family>
+        <family>MS Shell Dlg 2</family>
         <pointsize>10</pointsize>
        </font>
       </property>
@@ -1449,10 +1630,16 @@ background:#2F91A5;
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>420</y>
+        <y>390</y>
         <width>380</width>
         <height>20</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>MS Shell Dlg 2</family>
+        <pointsize>10</pointsize>
+       </font>
       </property>
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
@@ -1462,10 +1649,16 @@ background:#2F91A5;
       <property name="geometry">
        <rect>
         <x>509</x>
-        <y>420</y>
+        <y>390</y>
         <width>371</width>
         <height>20</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>MS Shell Dlg 2</family>
+        <pointsize>10</pointsize>
+       </font>
       </property>
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
@@ -1475,24 +1668,15 @@ background:#2F91A5;
       <property name="geometry">
        <rect>
         <x>530</x>
-        <y>525</y>
+        <y>475</y>
         <width>120</width>
         <height>35</height>
        </rect>
       </property>
-     </widget>
-     <widget class="QComboBox" name="house_name">
-      <property name="geometry">
-       <rect>
-        <x>530</x>
-        <y>480</y>
-        <width>120</width>
-        <height>40</height>
-       </rect>
-      </property>
       <property name="font">
        <font>
-        <family>Led Italic Font</family>
+        <family>MS Shell Dlg 2</family>
+        <pointsize>10</pointsize>
        </font>
       </property>
      </widget>
@@ -1500,14 +1684,15 @@ background:#2F91A5;
       <property name="geometry">
        <rect>
         <x>630</x>
-        <y>480</y>
+        <y>430</y>
         <width>100</width>
         <height>40</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <family>Led Italic Font</family>
+        <family>MS Shell Dlg 2</family>
+        <pointsize>10</pointsize>
        </font>
       </property>
       <property name="text">
@@ -1518,14 +1703,15 @@ background:#2F91A5;
       <property name="geometry">
        <rect>
         <x>630</x>
-        <y>520</y>
+        <y>470</y>
         <width>100</width>
         <height>40</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <family>Led Italic Font</family>
+        <family>MS Shell Dlg 2</family>
+        <pointsize>10</pointsize>
        </font>
       </property>
       <property name="text">
@@ -1536,18 +1722,38 @@ background:#2F91A5;
       <property name="geometry">
        <rect>
         <x>290</x>
-        <y>490</y>
+        <y>440</y>
         <width>161</width>
         <height>61</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <family>Led Italic Font</family>
+        <family>MS Shell Dlg 2</family>
+        <pointsize>10</pointsize>
        </font>
       </property>
       <property name="text">
        <string>تأكيد</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="house_name">
+      <property name="geometry">
+       <rect>
+        <x>529</x>
+        <y>430</y>
+        <width>121</width>
+        <height>35</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>MS Shell Dlg 2</family>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
       </property>
      </widget>
      <zorder>line_2</zorder>
@@ -1555,10 +1761,10 @@ background:#2F91A5;
      <zorder>label_17</zorder>
      <zorder>line</zorder>
      <zorder>house_number</zorder>
-     <zorder>house_name</zorder>
      <zorder>label_18</zorder>
      <zorder>label_19</zorder>
      <zorder>house_ok</zorder>
+     <zorder>house_name</zorder>
     </widget>
     <widget class="QWidget" name="client_tab">
      <attribute name="title">
@@ -1572,6 +1778,12 @@ background:#2F91A5;
         <width>891</width>
         <height>671</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>MS Shell Dlg 2</family>
+        <pointsize>10</pointsize>
+       </font>
       </property>
       <property name="styleSheet">
        <string notr="true">QTabWidget::tab-bar {
@@ -1620,15 +1832,16 @@ background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
        <widget class="QLabel" name="label_22">
         <property name="geometry">
          <rect>
-          <x>710</x>
-          <y>50</y>
+          <x>740</x>
+          <y>20</y>
           <width>100</width>
           <height>40</height>
          </rect>
         </property>
         <property name="font">
          <font>
-          <family>Led Italic Font</family>
+          <family>MS Shell Dlg 2</family>
+          <pointsize>10</pointsize>
          </font>
         </property>
         <property name="text">
@@ -1638,15 +1851,16 @@ background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
        <widget class="QLabel" name="label_20">
         <property name="geometry">
          <rect>
-          <x>710</x>
-          <y>130</y>
+          <x>740</x>
+          <y>100</y>
           <width>100</width>
           <height>40</height>
          </rect>
         </property>
         <property name="font">
          <font>
-          <family>Led Italic Font</family>
+          <family>MS Shell Dlg 2</family>
+          <pointsize>10</pointsize>
          </font>
         </property>
         <property name="text">
@@ -1656,11 +1870,17 @@ background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
        <widget class="QLineEdit" name="new_client_bike">
         <property name="geometry">
          <rect>
-          <x>560</x>
-          <y>130</y>
+          <x>590</x>
+          <y>100</y>
           <width>150</width>
           <height>35</height>
          </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>MS Shell Dlg 2</family>
+          <pointsize>10</pointsize>
+         </font>
         </property>
         <property name="readOnly">
          <bool>false</bool>
@@ -1669,25 +1889,32 @@ background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
        <widget class="QLineEdit" name="new_client_name">
         <property name="geometry">
          <rect>
-          <x>560</x>
-          <y>50</y>
+          <x>590</x>
+          <y>20</y>
           <width>150</width>
           <height>35</height>
          </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>MS Shell Dlg 2</family>
+          <pointsize>10</pointsize>
+         </font>
         </property>
        </widget>
        <widget class="QLabel" name="label_21">
         <property name="geometry">
          <rect>
-          <x>710</x>
-          <y>90</y>
+          <x>740</x>
+          <y>60</y>
           <width>100</width>
           <height>40</height>
          </rect>
         </property>
         <property name="font">
          <font>
-          <family>Led Italic Font</family>
+          <family>MS Shell Dlg 2</family>
+          <pointsize>10</pointsize>
          </font>
         </property>
         <property name="text">
@@ -1697,11 +1924,17 @@ background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
        <widget class="QLineEdit" name="new_client_phone">
         <property name="geometry">
          <rect>
-          <x>560</x>
-          <y>90</y>
+          <x>590</x>
+          <y>60</y>
           <width>150</width>
           <height>35</height>
          </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>MS Shell Dlg 2</family>
+          <pointsize>10</pointsize>
+         </font>
         </property>
         <property name="readOnly">
          <bool>false</bool>
@@ -1710,15 +1943,16 @@ background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
        <widget class="QLabel" name="label_23">
         <property name="geometry">
          <rect>
-          <x>710</x>
-          <y>170</y>
+          <x>740</x>
+          <y>140</y>
           <width>100</width>
           <height>40</height>
          </rect>
         </property>
         <property name="font">
          <font>
-          <family>Led Italic Font</family>
+          <family>MS Shell Dlg 2</family>
+          <pointsize>10</pointsize>
          </font>
         </property>
         <property name="text">
@@ -1728,11 +1962,17 @@ background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
        <widget class="QLineEdit" name="new_client_color">
         <property name="geometry">
          <rect>
-          <x>560</x>
-          <y>170</y>
+          <x>590</x>
+          <y>140</y>
           <width>150</width>
           <height>35</height>
          </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>MS Shell Dlg 2</family>
+          <pointsize>10</pointsize>
+         </font>
         </property>
         <property name="readOnly">
          <bool>false</bool>
@@ -1741,11 +1981,17 @@ background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
        <widget class="QLineEdit" name="new_client_condition">
         <property name="geometry">
          <rect>
-          <x>410</x>
-          <y>210</y>
+          <x>440</x>
+          <y>180</y>
           <width>300</width>
           <height>35</height>
          </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>MS Shell Dlg 2</family>
+          <pointsize>10</pointsize>
+         </font>
         </property>
         <property name="text">
          <string/>
@@ -1757,15 +2003,16 @@ background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
        <widget class="QLabel" name="label_24">
         <property name="geometry">
          <rect>
-          <x>710</x>
-          <y>210</y>
+          <x>740</x>
+          <y>180</y>
           <width>100</width>
           <height>40</height>
          </rect>
         </property>
         <property name="font">
          <font>
-          <family>Led Italic Font</family>
+          <family>MS Shell Dlg 2</family>
+          <pointsize>10</pointsize>
          </font>
         </property>
         <property name="text">
@@ -1775,11 +2022,17 @@ background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
        <widget class="QLineEdit" name="new_client_fix">
         <property name="geometry">
          <rect>
-          <x>410</x>
-          <y>290</y>
+          <x>440</x>
+          <y>260</y>
           <width>300</width>
           <height>35</height>
          </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>MS Shell Dlg 2</family>
+          <pointsize>10</pointsize>
+         </font>
         </property>
         <property name="text">
          <string/>
@@ -1791,15 +2044,16 @@ background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
        <widget class="QLabel" name="label_25">
         <property name="geometry">
          <rect>
-          <x>710</x>
-          <y>290</y>
+          <x>740</x>
+          <y>260</y>
           <width>100</width>
           <height>40</height>
          </rect>
         </property>
         <property name="font">
          <font>
-          <family>Led Italic Font</family>
+          <family>MS Shell Dlg 2</family>
+          <pointsize>10</pointsize>
          </font>
         </property>
         <property name="text">
@@ -1809,15 +2063,16 @@ background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
        <widget class="QLabel" name="label_26">
         <property name="geometry">
          <rect>
-          <x>710</x>
-          <y>250</y>
+          <x>740</x>
+          <y>220</y>
           <width>100</width>
           <height>40</height>
          </rect>
         </property>
         <property name="font">
          <font>
-          <family>Led Italic Font</family>
+          <family>MS Shell Dlg 2</family>
+          <pointsize>10</pointsize>
          </font>
         </property>
         <property name="text">
@@ -1827,14 +2082,15 @@ background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
        <widget class="QDateEdit" name="new_client_fix_date">
         <property name="geometry">
          <rect>
-          <x>560</x>
-          <y>250</y>
+          <x>590</x>
+          <y>220</y>
           <width>150</width>
           <height>35</height>
          </rect>
         </property>
         <property name="font">
          <font>
+          <family>MS Shell Dlg 2</family>
           <pointsize>10</pointsize>
          </font>
         </property>
@@ -1861,61 +2117,35 @@ background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
        <widget class="QPushButton" name="new_client_ok">
         <property name="geometry">
          <rect>
-          <x>540</x>
-          <y>470</y>
+          <x>450</x>
+          <y>390</y>
           <width>161</width>
           <height>61</height>
          </rect>
         </property>
         <property name="font">
          <font>
-          <family>Led Italic Font</family>
+          <family>MS Shell Dlg 2</family>
+          <pointsize>10</pointsize>
          </font>
         </property>
         <property name="text">
          <string>تأكيد</string>
         </property>
        </widget>
-       <widget class="QLineEdit" name="new_client_money">
-        <property name="geometry">
-         <rect>
-          <x>560</x>
-          <y>330</y>
-          <width>150</width>
-          <height>35</height>
-         </rect>
-        </property>
-       </widget>
-       <widget class="QLabel" name="label_36">
-        <property name="geometry">
-         <rect>
-          <x>710</x>
-          <y>330</y>
-          <width>100</width>
-          <height>40</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <family>Led Italic Font</family>
-         </font>
-        </property>
-        <property name="text">
-         <string>المبلغ</string>
-        </property>
-       </widget>
        <widget class="QLabel" name="label_62">
         <property name="geometry">
          <rect>
-          <x>710</x>
-          <y>370</y>
+          <x>740</x>
+          <y>300</y>
           <width>100</width>
           <height>40</height>
          </rect>
         </property>
         <property name="font">
          <font>
-          <family>Led Italic Font</family>
+          <family>MS Shell Dlg 2</family>
+          <pointsize>10</pointsize>
          </font>
         </property>
         <property name="text">
@@ -1925,21 +2155,33 @@ background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
        <widget class="QLineEdit" name="new_client_cost">
         <property name="geometry">
          <rect>
-          <x>560</x>
-          <y>370</y>
+          <x>590</x>
+          <y>300</y>
           <width>150</width>
           <height>35</height>
          </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>MS Shell Dlg 2</family>
+          <pointsize>10</pointsize>
+         </font>
         </property>
        </widget>
        <widget class="QGroupBox" name="new_groupBox">
         <property name="geometry">
          <rect>
           <x>320</x>
-          <y>160</y>
+          <y>110</y>
           <width>341</width>
           <height>191</height>
          </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>MS Shell Dlg 2</family>
+          <pointsize>10</pointsize>
+         </font>
         </property>
         <property name="styleSheet">
          <string notr="true">
@@ -1963,7 +2205,8 @@ QGroupBox{background-color:#4CA1AF;
          </property>
          <property name="font">
           <font>
-           <family>Led Italic Font</family>
+           <family>MS Shell Dlg 2</family>
+           <pointsize>10</pointsize>
           </font>
          </property>
          <property name="layoutDirection">
@@ -1992,8 +2235,8 @@ height: 30px;
          </property>
          <property name="font">
           <font>
-           <family>Led Italic Font</family>
-           <pointsize>12</pointsize>
+           <family>MS Shell Dlg 2</family>
+           <pointsize>10</pointsize>
           </font>
          </property>
          <property name="text">
@@ -2012,11 +2255,17 @@ height: 30px;
        <widget class="QLineEdit" name="client_phone">
         <property name="geometry">
          <rect>
-          <x>620</x>
-          <y>60</y>
-          <width>110</width>
+          <x>609</x>
+          <y>50</y>
+          <width>141</width>
           <height>35</height>
          </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>MS Shell Dlg 2</family>
+          <pointsize>10</pointsize>
+         </font>
         </property>
         <property name="readOnly">
          <bool>false</bool>
@@ -2025,11 +2274,17 @@ height: 30px;
        <widget class="QLineEdit" name="client_color">
         <property name="geometry">
          <rect>
-          <x>620</x>
-          <y>140</y>
-          <width>110</width>
+          <x>609</x>
+          <y>130</y>
+          <width>141</width>
           <height>35</height>
          </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>MS Shell Dlg 2</family>
+          <pointsize>10</pointsize>
+         </font>
         </property>
         <property name="readOnly">
          <bool>false</bool>
@@ -2038,11 +2293,17 @@ height: 30px;
        <widget class="QLineEdit" name="client_condition">
         <property name="geometry">
          <rect>
-          <x>430</x>
-          <y>180</y>
+          <x>450</x>
+          <y>170</y>
           <width>300</width>
           <height>35</height>
          </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>MS Shell Dlg 2</family>
+          <pointsize>10</pointsize>
+         </font>
         </property>
         <property name="text">
          <string/>
@@ -2054,11 +2315,17 @@ height: 30px;
        <widget class="QLineEdit" name="client_bike">
         <property name="geometry">
          <rect>
-          <x>620</x>
-          <y>100</y>
-          <width>110</width>
+          <x>609</x>
+          <y>90</y>
+          <width>141</width>
           <height>35</height>
          </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>MS Shell Dlg 2</family>
+          <pointsize>10</pointsize>
+         </font>
         </property>
         <property name="readOnly">
          <bool>false</bool>
@@ -2067,15 +2334,16 @@ height: 30px;
        <widget class="QLabel" name="label_29">
         <property name="geometry">
          <rect>
-          <x>720</x>
-          <y>20</y>
+          <x>740</x>
+          <y>10</y>
           <width>100</width>
           <height>40</height>
          </rect>
         </property>
         <property name="font">
          <font>
-          <family>Led Italic Font</family>
+          <family>MS Shell Dlg 2</family>
+          <pointsize>10</pointsize>
          </font>
         </property>
         <property name="text">
@@ -2085,15 +2353,16 @@ height: 30px;
        <widget class="QLabel" name="label_30">
         <property name="geometry">
          <rect>
-          <x>720</x>
-          <y>60</y>
+          <x>740</x>
+          <y>50</y>
           <width>100</width>
           <height>40</height>
          </rect>
         </property>
         <property name="font">
          <font>
-          <family>Led Italic Font</family>
+          <family>MS Shell Dlg 2</family>
+          <pointsize>10</pointsize>
          </font>
         </property>
         <property name="text">
@@ -2103,15 +2372,16 @@ height: 30px;
        <widget class="QLabel" name="label_28">
         <property name="geometry">
          <rect>
-          <x>720</x>
-          <y>100</y>
+          <x>740</x>
+          <y>90</y>
           <width>100</width>
           <height>40</height>
          </rect>
         </property>
         <property name="font">
          <font>
-          <family>Led Italic Font</family>
+          <family>MS Shell Dlg 2</family>
+          <pointsize>10</pointsize>
          </font>
         </property>
         <property name="text">
@@ -2121,15 +2391,16 @@ height: 30px;
        <widget class="QLabel" name="label_31">
         <property name="geometry">
          <rect>
-          <x>720</x>
-          <y>180</y>
+          <x>740</x>
+          <y>170</y>
           <width>100</width>
           <height>40</height>
          </rect>
         </property>
         <property name="font">
          <font>
-          <family>Led Italic Font</family>
+          <family>MS Shell Dlg 2</family>
+          <pointsize>10</pointsize>
          </font>
         </property>
         <property name="text">
@@ -2139,15 +2410,16 @@ height: 30px;
        <widget class="QLabel" name="label_32">
         <property name="geometry">
          <rect>
-          <x>720</x>
-          <y>140</y>
+          <x>740</x>
+          <y>130</y>
           <width>100</width>
           <height>40</height>
          </rect>
         </property>
         <property name="font">
          <font>
-          <family>Led Italic Font</family>
+          <family>MS Shell Dlg 2</family>
+          <pointsize>10</pointsize>
          </font>
         </property>
         <property name="text">
@@ -2157,26 +2429,33 @@ height: 30px;
        <widget class="QComboBox" name="client_name">
         <property name="geometry">
          <rect>
-          <x>610</x>
-          <y>20</y>
-          <width>120</width>
+          <x>559</x>
+          <y>10</y>
+          <width>191</width>
           <height>35</height>
          </rect>
         </property>
         <property name="font">
          <font>
-          <family>Led Italic Font</family>
+          <family>MS Shell Dlg 2</family>
+          <pointsize>10</pointsize>
          </font>
         </property>
        </widget>
        <widget class="QTableWidget" name="fixes_table">
         <property name="geometry">
          <rect>
-          <x>139</x>
-          <y>250</y>
+          <x>140</x>
+          <y>210</y>
           <width>711</width>
           <height>251</height>
          </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>MS Shell Dlg 2</family>
+          <pointsize>10</pointsize>
+         </font>
         </property>
         <attribute name="horizontalHeaderCascadingSectionResizes">
          <bool>false</bool>
@@ -2204,11 +2483,6 @@ height: 30px;
         </column>
         <column>
          <property name="text">
-          <string>المبلغ</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
           <string>المصنعيه</string>
          </property>
         </column>
@@ -2224,8 +2498,8 @@ height: 30px;
         </property>
         <property name="font">
          <font>
-          <family>Led Italic Font</family>
-          <pointsize>9</pointsize>
+          <family>MS Shell Dlg 2</family>
+          <pointsize>10</pointsize>
          </font>
         </property>
         <property name="text">
@@ -2237,13 +2511,14 @@ height: 30px;
          <rect>
           <x>40</x>
           <y>100</y>
-          <width>461</width>
-          <height>371</height>
+          <width>451</width>
+          <height>281</height>
          </rect>
         </property>
         <property name="font">
          <font>
-          <pointsize>8</pointsize>
+          <family>MS Shell Dlg 2</family>
+          <pointsize>10</pointsize>
          </font>
         </property>
         <property name="styleSheet">
@@ -2259,10 +2534,16 @@ height: 30px;
          <property name="geometry">
           <rect>
            <x>190</x>
-           <y>80</y>
+           <y>30</y>
            <width>130</width>
            <height>35</height>
           </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>MS Shell Dlg 2</family>
+           <pointsize>10</pointsize>
+          </font>
          </property>
          <property name="minimumDate">
           <date>
@@ -2279,10 +2560,16 @@ height: 30px;
          <property name="geometry">
           <rect>
            <x>20</x>
-           <y>120</y>
+           <y>70</y>
            <width>300</width>
            <height>35</height>
           </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>MS Shell Dlg 2</family>
+           <pointsize>10</pointsize>
+          </font>
          </property>
          <property name="text">
           <string/>
@@ -2295,10 +2582,16 @@ height: 30px;
          <property name="geometry">
           <rect>
            <x>170</x>
-           <y>260</y>
+           <y>180</y>
            <width>161</width>
            <height>61</height>
           </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>MS Shell Dlg 2</family>
+           <pointsize>10</pointsize>
+          </font>
          </property>
          <property name="text">
           <string>تأكيد</string>
@@ -2308,14 +2601,15 @@ height: 30px;
          <property name="geometry">
           <rect>
            <x>330</x>
-           <y>80</y>
+           <y>30</y>
            <width>100</width>
            <height>40</height>
           </rect>
          </property>
          <property name="font">
           <font>
-           <family>Led Italic Font</family>
+           <family>MS Shell Dlg 2</family>
+           <pointsize>10</pointsize>
           </font>
          </property>
          <property name="text">
@@ -2326,14 +2620,15 @@ height: 30px;
          <property name="geometry">
           <rect>
            <x>330</x>
-           <y>120</y>
+           <y>70</y>
            <width>100</width>
            <height>40</height>
           </rect>
          </property>
          <property name="font">
           <font>
-           <family>Led Italic Font</family>
+           <family>MS Shell Dlg 2</family>
+           <pointsize>10</pointsize>
           </font>
          </property>
          <property name="text">
@@ -2344,52 +2639,31 @@ height: 30px;
          <property name="geometry">
           <rect>
            <x>210</x>
-           <y>200</y>
+           <y>110</y>
            <width>110</width>
            <height>35</height>
-          </rect>
-         </property>
-        </widget>
-        <widget class="QLabel" name="label_63">
-         <property name="geometry">
-          <rect>
-           <x>330</x>
-           <y>160</y>
-           <width>100</width>
-           <height>40</height>
           </rect>
          </property>
          <property name="font">
           <font>
-           <family>Led Italic Font</family>
+           <family>MS Shell Dlg 2</family>
+           <pointsize>10</pointsize>
           </font>
-         </property>
-         <property name="text">
-          <string>المبلغ</string>
-         </property>
-        </widget>
-        <widget class="QLineEdit" name="client_money">
-         <property name="geometry">
-          <rect>
-           <x>210</x>
-           <y>160</y>
-           <width>110</width>
-           <height>35</height>
-          </rect>
          </property>
         </widget>
         <widget class="QLabel" name="label_64">
          <property name="geometry">
           <rect>
            <x>330</x>
-           <y>200</y>
+           <y>110</y>
            <width>100</width>
            <height>40</height>
           </rect>
          </property>
          <property name="font">
           <font>
-           <family>Led Italic Font</family>
+           <family>MS Shell Dlg 2</family>
+           <pointsize>10</pointsize>
           </font>
          </property>
          <property name="text">
@@ -2401,14 +2675,15 @@ height: 30px;
         <property name="geometry">
          <rect>
           <x>450</x>
-          <y>510</y>
+          <y>470</y>
           <width>161</width>
           <height>61</height>
          </rect>
         </property>
         <property name="font">
          <font>
-          <family>Led Italic Font</family>
+          <family>MS Shell Dlg 2</family>
+          <pointsize>10</pointsize>
          </font>
         </property>
         <property name="text">
@@ -2437,10 +2712,10 @@ height: 30px;
        <widget class="QTableWidget" name="all_clients">
         <property name="geometry">
          <rect>
-          <x>110</x>
-          <y>30</y>
-          <width>750</width>
-          <height>511</height>
+          <x>39</x>
+          <y>0</y>
+          <width>821</width>
+          <height>501</height>
          </rect>
         </property>
         <property name="sizeAdjustPolicy">
@@ -2455,7 +2730,7 @@ height: 30px;
          </property>
          <property name="font">
           <font>
-           <family>Led Italic Font</family>
+           <family>MS Shell Dlg 2</family>
           </font>
          </property>
         </column>
@@ -2467,6 +2742,11 @@ height: 30px;
         <column>
          <property name="text">
           <string>النوع</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>اللون</string>
          </property>
         </column>
         <column>
@@ -2491,10 +2771,16 @@ height: 30px;
       <property name="geometry">
        <rect>
         <x>30</x>
-        <y>100</y>
+        <y>70</y>
         <width>481</width>
-        <height>541</height>
+        <height>511</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>MS Shell Dlg 2</family>
+        <pointsize>10</pointsize>
+       </font>
       </property>
       <attribute name="verticalHeaderVisible">
        <bool>false</bool>
@@ -2519,14 +2805,15 @@ height: 30px;
       <property name="geometry">
        <rect>
         <x>150</x>
-        <y>40</y>
+        <y>20</y>
         <width>120</width>
         <height>40</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <family>Led Italic Font</family>
+        <family>MS Shell Dlg 2</family>
+        <pointsize>10</pointsize>
        </font>
       </property>
       <item>
@@ -2564,6 +2851,12 @@ height: 30px;
         <height>35</height>
        </rect>
       </property>
+      <property name="font">
+       <font>
+        <family>MS Shell Dlg 2</family>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
       <property name="placeholderText">
        <string>اضف المبلغ</string>
       </property>
@@ -2579,7 +2872,8 @@ height: 30px;
       </property>
       <property name="font">
        <font>
-        <family>Led Italic Font</family>
+        <family>MS Shell Dlg 2</family>
+        <pointsize>10</pointsize>
        </font>
       </property>
       <item>
@@ -2604,7 +2898,8 @@ height: 30px;
       </property>
       <property name="font">
        <font>
-        <family>Led Italic Font</family>
+        <family>MS Shell Dlg 2</family>
+        <pointsize>10</pointsize>
        </font>
       </property>
       <property name="text">
@@ -2622,7 +2917,8 @@ height: 30px;
       </property>
       <property name="font">
        <font>
-        <family>Led Italic Font</family>
+        <family>MS Shell Dlg 2</family>
+        <pointsize>10</pointsize>
        </font>
       </property>
       <property name="text">
@@ -2636,14 +2932,15 @@ height: 30px;
       <property name="geometry">
        <rect>
         <x>280</x>
-        <y>40</y>
+        <y>20</y>
         <width>120</width>
         <height>40</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <family>Led Italic Font</family>
+        <family>MS Shell Dlg 2</family>
+        <pointsize>10</pointsize>
        </font>
       </property>
       <property name="text">
@@ -2659,6 +2956,12 @@ height: 30px;
         <height>40</height>
        </rect>
       </property>
+      <property name="font">
+       <font>
+        <family>MS Shell Dlg 2</family>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
       <property name="placeholderText">
        <string>العمليه</string>
       </property>
@@ -2667,14 +2970,15 @@ height: 30px;
       <property name="geometry">
        <rect>
         <x>530</x>
-        <y>530</y>
+        <y>490</y>
         <width>100</width>
         <height>40</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <family>Led Italic Font</family>
+        <family>MS Shell Dlg 2</family>
+        <pointsize>10</pointsize>
        </font>
       </property>
       <property name="text">
@@ -2688,10 +2992,16 @@ height: 30px;
       <property name="geometry">
        <rect>
         <x>520</x>
-        <y>580</y>
+        <y>540</y>
         <width>110</width>
         <height>35</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>MS Shell Dlg 2</family>
+        <pointsize>10</pointsize>
+       </font>
       </property>
       <property name="readOnly">
        <bool>true</bool>
@@ -2703,15 +3013,15 @@ height: 30px;
     <property name="geometry">
      <rect>
       <x>900</x>
-      <y>390</y>
+      <y>380</y>
       <width>100</width>
       <height>75</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <family>Led Italic Font</family>
-      <pointsize>9</pointsize>
+      <family>MS Shell Dlg 2</family>
+      <pointsize>10</pointsize>
      </font>
     </property>
     <property name="text">
@@ -2722,15 +3032,15 @@ height: 30px;
     <property name="geometry">
      <rect>
       <x>900</x>
-      <y>300</y>
+      <y>290</y>
       <width>100</width>
       <height>75</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <family>Led Italic Font</family>
-      <pointsize>9</pointsize>
+      <family>MS Shell Dlg 2</family>
+      <pointsize>10</pointsize>
      </font>
     </property>
     <property name="text">
@@ -2741,15 +3051,15 @@ height: 30px;
     <property name="geometry">
      <rect>
       <x>900</x>
-      <y>120</y>
+      <y>110</y>
       <width>100</width>
       <height>75</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <family>Led Italic Font</family>
-      <pointsize>9</pointsize>
+      <family>MS Shell Dlg 2</family>
+      <pointsize>10</pointsize>
      </font>
     </property>
     <property name="text">
@@ -2760,15 +3070,15 @@ height: 30px;
     <property name="geometry">
      <rect>
       <x>900</x>
-      <y>480</y>
+      <y>470</y>
       <width>100</width>
       <height>75</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <family>Led Italic Font</family>
-      <pointsize>9</pointsize>
+      <family>MS Shell Dlg 2</family>
+      <pointsize>10</pointsize>
      </font>
     </property>
     <property name="text">
@@ -2779,15 +3089,15 @@ height: 30px;
     <property name="geometry">
      <rect>
       <x>900</x>
-      <y>30</y>
+      <y>20</y>
       <width>100</width>
       <height>75</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <family>Led Italic Font</family>
-      <pointsize>9</pointsize>
+      <family>MS Shell Dlg 2</family>
+      <pointsize>10</pointsize>
      </font>
     </property>
     <property name="text">
@@ -2798,19 +3108,112 @@ height: 30px;
     <property name="geometry">
      <rect>
       <x>900</x>
-      <y>570</y>
+      <y>560</y>
       <width>100</width>
       <height>75</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <family>Led Italic Font</family>
-      <pointsize>9</pointsize>
+      <family>MS Shell Dlg 2</family>
+      <pointsize>10</pointsize>
      </font>
     </property>
     <property name="text">
      <string>الماليه</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_12">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>620</y>
+      <width>281</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>MS Shell Dlg 2</family>
+      <pointsize>10</pointsize>
+      <weight>75</weight>
+      <italic>true</italic>
+      <bold>true</bold>
+      <underline>true</underline>
+      <strikeout>false</strikeout>
+      <kerning>false</kerning>
+     </font>
+    </property>
+    <property name="text">
+     <string>Developed BY: Tech Arena</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_13">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>630</y>
+      <width>40</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>MS Shell Dlg 2</family>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>../../Downloads/output-onlinepngtools.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+    <property name="openExternalLinks">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>310</x>
+      <y>637</y>
+      <width>30</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>MS Shell Dlg 2</family>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+QPushButton:pressed {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #2980B9, stop: 1 #4286f4);
+}
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../7197477020_11e9f9c6c4.jpg</normaloff>../7197477020_11e9f9c6c4.jpg</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>30</width>
+      <height>30</height>
+     </size>
     </property>
    </widget>
   </widget>
@@ -2833,7 +3236,7 @@ height: 30px;
   <tabstop>store_pb</tabstop>
   <tabstop>house_pb</tabstop>
   <tabstop>client_pb</tabstop>
-  <tabstop>search_name</tabstop>
+  <tabstop>sales_pb</tabstop>
   <tabstop>sell_name</tabstop>
   <tabstop>sell_number</tabstop>
   <tabstop>sell_dis</tabstop>
@@ -2856,7 +3259,6 @@ height: 30px;
   <tabstop>buy_remove_name</tabstop>
   <tabstop>buy_remove_ok</tabstop>
   <tabstop>buy_remove_all</tabstop>
-  <tabstop>house_name</tabstop>
   <tabstop>house_number</tabstop>
   <tabstop>house_ok</tabstop>
   <tabstop>new_client_name</tabstop>
@@ -2866,20 +3268,18 @@ height: 30px;
   <tabstop>new_client_condition</tabstop>
   <tabstop>new_client_fix_date</tabstop>
   <tabstop>new_client_fix</tabstop>
-  <tabstop>new_client_money</tabstop>
   <tabstop>new_client_cost</tabstop>
   <tabstop>new_client_ok</tabstop>
   <tabstop>client_name</tabstop>
-  <tabstop>add_new_fix</tabstop>
-  <tabstop>client_fix_date</tabstop>
-  <tabstop>client_fix</tabstop>
-  <tabstop>client_money</tabstop>
-  <tabstop>client_cost</tabstop>
-  <tabstop>client_ok</tabstop>
   <tabstop>client_phone</tabstop>
   <tabstop>client_bike</tabstop>
   <tabstop>client_color</tabstop>
   <tabstop>client_condition</tabstop>
+  <tabstop>add_new_fix</tabstop>
+  <tabstop>client_fix_date</tabstop>
+  <tabstop>client_fix</tabstop>
+  <tabstop>client_cost</tabstop>
+  <tabstop>client_ok</tabstop>
   <tabstop>client_change</tabstop>
   <tabstop>all_clients</tabstop>
   <tabstop>house_table</tabstop>
@@ -2895,6 +3295,16 @@ height: 30px;
   <tabstop>all_sell_total_after</tabstop>
   <tabstop>store_table</tabstop>
   <tabstop>buy_table</tabstop>
+  <tabstop>label_9</tabstop>
+  <tabstop>selling_label</tabstop>
+  <tabstop>sales_table</tabstop>
+  <tabstop>sales_date</tabstop>
+  <tabstop>sales_total</tabstop>
+  <tabstop>pushButton</tabstop>
+  <tabstop>op_text</tabstop>
+  <tabstop>op_money</tabstop>
+  <tabstop>operation</tabstop>
+  <tabstop>save_operation</tabstop>
  </tabstops>
  <resources/>
  <connections/>

@@ -1,6 +1,6 @@
-import datetime
+from datetime import datetime, timedelta
 import sys
-
+from webbrowser import open
 import MySQLdb
 from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
@@ -38,9 +38,14 @@ class MainApp(QMainWindow, Program):
 
         self.show_all_clients()
         self.show_client_name()
-        self.show_house_name()
+        # self.show_house_name()
         self.get_sales_date()
 
+        self.search_auto()
+        self.house_auto()
+        self.buy_auto()
+
+    # *******************************
     # *******************************
     #   Changes in UI
     # *******************************
@@ -99,20 +104,21 @@ class MainApp(QMainWindow, Program):
 
     def all_clients_table_changes(self):
         self.all_clients.verticalHeader().hide()
-        self.all_clients.setColumnWidth(0, 200)
+        self.all_clients.setColumnWidth(0, 175)
         self.all_clients.setColumnWidth(1, 100)
         self.all_clients.setColumnWidth(2, 100)
-        self.all_clients.setColumnWidth(3, 100)
-        self.all_clients.setColumnWidth(4, 300)
+        self.all_clients.setColumnWidth(3, 80)
+        self.all_clients.setColumnWidth(4, 100)
+        self.all_clients.setColumnWidth(5, 300)
 
     def fixes_table_changes(self):
         self.fixes_table.verticalHeader().hide()
 
         self.fixes_table.setColumnWidth(0, 100)
         self.fixes_table.setColumnWidth(1, 100)
-        self.fixes_table.setColumnWidth(2, 300)
+        self.fixes_table.setColumnWidth(2, 350)
         self.fixes_table.setColumnWidth(3, 100)
-        self.fixes_table.setColumnWidth(4, 100)
+        # self.fixes_table.setColumnWidth(4, 100)
 
     def input_strict(self):
         self.sell_number.setValidator(QIntValidator())
@@ -123,9 +129,9 @@ class MainApp(QMainWindow, Program):
         self.sell_dis.setValidator(QDoubleValidator())
         self.all_sell_dis.setValidator(QDoubleValidator())
 
-        self.new_client_money.setValidator(QDoubleValidator())
+        # self.new_client_money.setValidator(QDoubleValidator())
         self.new_client_cost.setValidator(QDoubleValidator())
-        self.client_money.setValidator(QDoubleValidator())
+        # self.client_money.setValidator(QDoubleValidator())
         self.client_cost.setValidator(QDoubleValidator())
 
     def calender_today(self):
@@ -165,7 +171,7 @@ class MainApp(QMainWindow, Program):
         self.sales_pb.clicked.connect(self.open_sales)
 
     def search_buttons(self):
-        self.search_name.currentTextChanged.connect(self.search)
+        self.search_name.textChanged.connect(self.search)
 
     def buy_buttons(self):
         self.buy_add.clicked.connect(self.buy_adding)
@@ -231,6 +237,10 @@ class MainApp(QMainWindow, Program):
         #  Current Client
         self.client_name.currentTextChanged.connect(self.current_client)
 
+        # Facebook button
+        self.pushButton.clicked.connect(lambda: open('https://www.facebook.com/techarenaeg'))
+        self.pushButton.clicked.connect(lambda: open('https://www.facebook.com/techarenaeg'))
+
     # *******************************
     #   Opening  Tabs
     # *******************************
@@ -277,7 +287,7 @@ class MainApp(QMainWindow, Program):
         self.new_client_color.setText('')
         self.new_client_condition.setText('')
         self.new_client_fix.setText('')
-        self.new_client_money.setText('')
+        # self.new_client_money.setText('')
         self.new_client_cost.setText('')
         self.show_client_name()
         self.show_all_clients()
@@ -286,17 +296,20 @@ class MainApp(QMainWindow, Program):
     #      Search
     # *******************************
 
-    def search_show_products(self):
+    # def search_show_products(self):
+    #
+    #     self.cur = self.db.cursor()
+    #     self.cur.execute('''SELECT p_name FROM products ''')
+    #     data = self.cur.fetchall()
+    #     if data:
+    #         for item in data:
+    #             self.search_name.addItem(item[0])
 
-        self.cur = self.db.cursor()
-        self.cur.execute('''SELECT p_name FROM products ''')
-        data = self.cur.fetchall()
-        if data:
-            for item in data:
-                self.search_name.addItem(item[0])
+
 
     def search(self):
-        name = self.search_name.currentText()
+        self.search_auto()
+        name = self.search_name.text()
 
         self.cur = self.db.cursor()
 
@@ -474,7 +487,7 @@ class MainApp(QMainWindow, Program):
         global sell_list
 
         total = self.all_sell_total_after.text()
-        date = datetime.datetime.today()
+        date = datetime.today()
 
         self.cur = self.db.cursor()
 
@@ -521,12 +534,11 @@ class MainApp(QMainWindow, Program):
             unit_price = item[3]
             total = item[4]
             last_price = item[5]
-            x += int(last_price)
+            x += int(total)
             table.add_row([name, number, unit_price, total, last_price])
 
-        self.selling_label.setText(table.draw() + '\n' + f'الاجمالي = {x}')
-
-
+        self.selling_label.setText(
+            table.draw() + '\n\n' + f'الاجمالي = {x}' + '\t\t' + f'بعد الخصم = {self.all_sell_total_after.text()}')
 
     def show_avail(self):
         name = self.sell_name.currentText()
@@ -763,20 +775,20 @@ class MainApp(QMainWindow, Program):
                 row_pos = self.house_table.rowCount()
                 self.house_table.insertRow(row_pos)
 
-    def show_house_name(self):
-
-        self.cur = self.db.cursor()
-        self.cur.execute('''SELECT p_name,h_number FROM products''')
-        data = self.cur.fetchall()
-        if data:
-            self.house_name.clear()
-            for item in data:
-                if int(item[1]) > 0:
-                    self.house_name.addItem(item[0])
+    # def show_house_name(self):
+    #
+    #     self.cur = self.db.cursor()
+    #     self.cur.execute('''SELECT p_name,h_number FROM products''')
+    #     data = self.cur.fetchall()
+    #     if data:
+    #         self.house_name.clear()
+    #         for item in data:
+    #             if int(item[1]) > 0:
+    #                 self.house_name.addItem(item[0])
 
     def move_to_store(self):
         # Getting info from UI
-        name = self.house_name.currentText()
+        name = self.house_name.text()
         number = int(self.house_number.text().strip())
 
         self.cur = self.db.cursor()
@@ -812,9 +824,9 @@ class MainApp(QMainWindow, Program):
         condition = self.new_client_condition.text()
         fix_date = self.new_client_fix_date.date().toPyDate()
         fix = self.new_client_fix.text()
-        paid = float(self.new_client_money.text().strip())
+        # paid = float(self.new_client_money.text().strip())
         cost = float(self.new_client_cost.text().strip())
-        added_time = datetime.datetime.now()
+        added_time = datetime.now()
 
         self.cur = self.db.cursor()
         self.cur.execute(
@@ -822,8 +834,8 @@ class MainApp(QMainWindow, Program):
             VALUES (%s,%s,%s,%s,%s,%s,%s)''', (name, number, bike, color, condition, fix, fix_date))
 
         self.cur.execute(
-            '''INSERT INTO fixes (c_name,in_date,fix_date,fix,paid,fix_cost) VALUES (%s,%s,%s,%s,%s,%s)''',
-            (name, added_time, fix_date, fix, paid, cost))
+            '''INSERT INTO fixes (c_name,in_date,fix_date,fix,fix_cost) VALUES (%s,%s,%s,%s,%s)''',
+            (name, added_time, fix_date, fix, cost))
         self.db.commit()
         self.new_groupBox.setHidden(False)
 
@@ -855,7 +867,7 @@ class MainApp(QMainWindow, Program):
             self.client_color.setText(bike_color)
             self.client_condition.setText(bike_condition)
 
-        self.cur.execute(f'''SELECT in_date,fix_date,fix,paid,fix_cost FROM fixes WHERE c_name=%s''', [name])
+        self.cur.execute(f'''SELECT in_date,fix_date,fix,fix_cost FROM fixes WHERE c_name=%s''', [name])
         fix_data = self.cur.fetchall()
         if fix_data:
             self.fixes_table.setRowCount(0)
@@ -873,13 +885,13 @@ class MainApp(QMainWindow, Program):
         name = self.client_name.currentText()
         fix_date = self.client_fix_date.date().toPyDate()
         fix = self.client_fix.text()
-        paid = float(self.client_money.text().strip())
+        # paid = float(self.client_money.text().strip())
         cost = float(self.client_cost.text().strip())
-        added_time = datetime.datetime.now()
+        added_time = datetime.now()
 
         self.cur = self.db.cursor()
-        self.cur.execute(f'''INSERT INTO fixes (c_name,in_date,fix_date,fix,paid,fix_cost) 
-        VALUES (%s,%s,%s,%s,%s,%s)''', [name, added_time, fix_date, fix, paid, cost])
+        self.cur.execute(f'''INSERT INTO fixes (c_name,in_date,fix_date,fix,fix_cost) 
+        VALUES (%s,%s,%s,%s,%s)''', [name, added_time, fix_date, fix, cost])
 
         self.cur.execute('''UPDATE clients SET fix=%s, fix_date=%s WHERE c_name=%s''', (fix, fix_date, name))
         self.db.commit()
@@ -888,7 +900,7 @@ class MainApp(QMainWindow, Program):
         self.current_client()
         self.groupBox.setHidden(True)
         self.client_fix.setText('')
-        self.client_money.setText('')
+        # self.client_money.setText('')
         self.client_cost.setText('')
 
     def update_client(self):
@@ -907,7 +919,7 @@ class MainApp(QMainWindow, Program):
     def show_all_clients(self):
 
         self.cur = self.db.cursor()
-        self.cur.execute(f''' SELECT c_name, c_phone, bike,fix_date, fix  FROM clients ''')
+        self.cur.execute(f''' SELECT c_name, c_phone, bike, bike_color, fix_date, fix  FROM clients ''')
         client_data = self.cur.fetchall()
 
         if client_data:
@@ -917,13 +929,15 @@ class MainApp(QMainWindow, Program):
                 name = form[0]
                 phone = form[1]
                 bike = form[2]
-                fix_date = form[3]
-                fix = form[4]
+                color = form[3]
+                fix_date = form[4]
+                fix = form[5]
                 self.all_clients.setItem(row, 0, QTableWidgetItem(str(name)))
                 self.all_clients.setItem(row, 1, QTableWidgetItem(str(phone)))
                 self.all_clients.setItem(row, 2, QTableWidgetItem(str(bike)))
-                self.all_clients.setItem(row, 3, QTableWidgetItem(str(fix_date)))
-                self.all_clients.setItem(row, 4, QTableWidgetItem(str(fix)))
+                self.all_clients.setItem(row, 3, QTableWidgetItem(str(color)))
+                self.all_clients.setItem(row, 4, QTableWidgetItem(str(fix_date)))
+                self.all_clients.setItem(row, 5, QTableWidgetItem(str(fix)))
 
                 row_pos = self.all_clients.rowCount()
                 self.all_clients.insertRow(row_pos)
@@ -936,7 +950,7 @@ class MainApp(QMainWindow, Program):
         self.new_client_color.setText('')
         self.new_client_condition.setText('')
         self.new_client_fix.setText('')
-        self.new_client_money.setText('')
+        # self.new_client_money.setText('')
         self.new_client_cost.setText('')
         self.show_client_name()
         self.show_all_clients()
@@ -947,13 +961,13 @@ class MainApp(QMainWindow, Program):
     # *******************************
 
     def product_refresh(self):
-        self.search_show_products()
+        # self.search_show_products()
         self.search()
         self.store_db()
         self.sell_show_products()
         self.show_avail()
         self.house_db()
-        self.show_house_name()
+        # self.show_house_name()
 
     # *******************************
     #   Sales
@@ -962,18 +976,18 @@ class MainApp(QMainWindow, Program):
     def get_sales_date(self):
 
         date = self.sales_date.currentIndex()
-        today = datetime.datetime.today()
+        today = datetime.today()
 
         if date == 0:
             today = today.date()
         elif date == 1:
-            today = (today - datetime.timedelta(days=30)).date()
+            today = (today - timedelta(days=30)).date()
         elif date == 2:
-            today = (today - datetime.timedelta(days=180)).date()
+            today = (today - timedelta(days=180)).date()
         elif date == 3:
-            today = (today - datetime.timedelta(days=365)).date()
+            today = (today - timedelta(days=365)).date()
         elif date == 4:
-            today = (today - datetime.timedelta(weeks=10000)).date()
+            today = (today - timedelta(weeks=10000)).date()
 
         self.cur = self.db.cursor()
         self.cur.execute('''SELECT sale_date, paid, text FROM sales WHERE sale_date>=%s ORDER BY  sale_date DESC''',
@@ -999,7 +1013,7 @@ class MainApp(QMainWindow, Program):
         money = self.op_money.text()
         operation = self.operation.currentIndex()
         text = self.op_text.text()
-        date = datetime.datetime.today()
+        date = datetime.today()
 
         self.cur = self.db.cursor()
         self.cur.execute('''INSERT INTO sales (sale_date, operation, paid, text) VALUES (%s,%s,%s,%s)''',
@@ -1027,6 +1041,46 @@ class MainApp(QMainWindow, Program):
                     total += paid
 
         self.sales_total.setText(f'{total}')
+
+    # *******************************************
+    # *******************************************
+    # *******************************************
+    # *******************************************
+    def buy_auto(self):
+        self.cur = self.db.cursor()
+        self.cur.execute('''SELECT p_name FROM products''')
+        data = self.cur.fetchall()
+        a = []
+        for i in data:
+            a.append(i[0])
+        print(a)
+        com = QCompleter(a)
+        self.buy_name.setCompleter(com)
+        # ///////////////////////
+
+    def house_auto(self):
+        self.cur = self.db.cursor()
+        self.cur.execute('''SELECT p_name FROM products''')
+        data = self.cur.fetchall()
+        a = []
+        for i in data:
+            a.append(i[0])
+        print(a)
+        com = QCompleter(a)
+        self.house_name.setCompleter(com)
+        # ///////////////////////
+
+    def search_auto(self):
+        self.cur = self.db.cursor()
+        self.cur.execute('''SELECT p_name FROM products''')
+        data = self.cur.fetchall()
+        a = []
+        for i in data:
+            a.append(i[0])
+        print(a)
+        com = QCompleter(a)
+        self.search_name.setCompleter(com)
+        # ///////////////////////
 
 
 def main():
