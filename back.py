@@ -41,9 +41,7 @@ class MainApp(QMainWindow, Program):
         # self.show_house_name()
         self.get_sales_date()
 
-        self.search_auto()
-        self.house_auto()
-        self.buy_auto()
+        self.auto_complete()
 
     # *******************************
     # *******************************
@@ -191,7 +189,7 @@ class MainApp(QMainWindow, Program):
         self.sell_accept_box.accepted.connect(self.sell_confirm)
         self.sell_accept_box.rejected.connect(self.hide_sell_group)
 
-        self.sell_name.currentTextChanged.connect(self.show_avail)
+        self.sell_name.textChanged.connect(self.show_avail)
         self.sell_number.textEdited.connect(self.calc_total)
 
         # Calculate The Discount
@@ -247,24 +245,88 @@ class MainApp(QMainWindow, Program):
 
     def open_search(self):
         self.mainTab.setCurrentIndex(0)
+        self.search_pb.setStyleSheet(
+            " background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #2980B9, stop: 1 #4286f4);")
+
+        self.buy_pb.setStyleSheet("background-color: #F2F2F2;")
+        self.sell_pb.setStyleSheet("background-color: #F2F2F2;")
+        self.store_pb.setStyleSheet("background-color: #F2F2F2;")
+        self.house_pb.setStyleSheet("background-color: #F2F2F2;")
+        self.client_pb.setStyleSheet("background-color: #F2F2F2;")
+        self.sales_pb.setStyleSheet("background-color: #F2F2F2;")
 
     def open_store(self):
         self.mainTab.setCurrentIndex(1)
 
+        self.store_pb.setStyleSheet(
+            " background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #2980B9, stop: 1 #4286f4);")
+
+        self.buy_pb.setStyleSheet("background-color: #F2F2F2;")
+        self.sell_pb.setStyleSheet("background-color: #F2F2F2;")
+        self.search_pb.setStyleSheet("background-color: #F2F2F2;")
+        self.house_pb.setStyleSheet("background-color: #F2F2F2;")
+        self.client_pb.setStyleSheet("background-color: #F2F2F2;")
+        self.sales_pb.setStyleSheet("background-color: #F2F2F2;")
+
     def open_buy(self):
         self.mainTab.setCurrentIndex(2)
+        self.buy_pb.setStyleSheet(
+            " background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #2980B9, stop: 1 #4286f4);")
+
+        self.store_pb.setStyleSheet("background-color: #F2F2F2;")
+        self.sell_pb.setStyleSheet("background-color: #F2F2F2;")
+        self.search_pb.setStyleSheet("background-color: #F2F2F2;")
+        self.house_pb.setStyleSheet("background-color: #F2F2F2;")
+        self.client_pb.setStyleSheet("background-color: #F2F2F2;")
+        self.sales_pb.setStyleSheet("background-color: #F2F2F2;")
 
     def open_sell(self):
         self.mainTab.setCurrentIndex(3)
+        self.sell_pb.setStyleSheet(
+            " background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #2980B9, stop: 1 #4286f4);")
+
+        self.store_pb.setStyleSheet("background-color: #F2F2F2;")
+        self.buy_pb.setStyleSheet("background-color: #F2F2F2;")
+        self.search_pb.setStyleSheet("background-color: #F2F2F2;")
+        self.house_pb.setStyleSheet("background-color: #F2F2F2;")
+        self.client_pb.setStyleSheet("background-color: #F2F2F2;")
+        self.sales_pb.setStyleSheet("background-color: #F2F2F2;")
 
     def open_house(self):
         self.mainTab.setCurrentIndex(4)
+        self.house_pb.setStyleSheet(
+            " background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #2980B9, stop: 1 #4286f4);")
+
+        self.store_pb.setStyleSheet("background-color: #F2F2F2;")
+        self.buy_pb.setStyleSheet("background-color: #F2F2F2;")
+        self.search_pb.setStyleSheet("background-color: #F2F2F2;")
+        self.sell_pb.setStyleSheet("background-color: #F2F2F2;")
+        self.client_pb.setStyleSheet("background-color: #F2F2F2;")
+        self.sales_pb.setStyleSheet("background-color: #F2F2F2;")
 
     def open_clients(self):
         self.mainTab.setCurrentIndex(5)
+        self.client_pb.setStyleSheet(
+            " background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #2980B9, stop: 1 #4286f4);")
+
+        self.store_pb.setStyleSheet("background-color: #F2F2F2;")
+        self.buy_pb.setStyleSheet("background-color: #F2F2F2;")
+        self.search_pb.setStyleSheet("background-color: #F2F2F2;")
+        self.sell_pb.setStyleSheet("background-color: #F2F2F2;")
+        self.house_pb.setStyleSheet("background-color: #F2F2F2;")
+        self.sales_pb.setStyleSheet("background-color: #F2F2F2;")
 
     def open_sales(self):
         self.mainTab.setCurrentIndex(6)
+        self.sales_pb.setStyleSheet(
+            " background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #2980B9, stop: 1 #4286f4);")
+
+        self.store_pb.setStyleSheet("background-color: #F2F2F2;")
+        self.buy_pb.setStyleSheet("background-color: #F2F2F2;")
+        self.search_pb.setStyleSheet("background-color: #F2F2F2;")
+        self.sell_pb.setStyleSheet("background-color: #F2F2F2;")
+        self.house_pb.setStyleSheet("background-color: #F2F2F2;")
+        self.client_pb.setStyleSheet("background-color: #F2F2F2;")
 
     # -----------------------------
     def show_new_fix(self):
@@ -288,7 +350,7 @@ class MainApp(QMainWindow, Program):
         self.new_client_condition.setText('')
         self.new_client_fix.setText('')
         # self.new_client_money.setText('')
-        self.new_client_cost.setText('')
+        # self.new_client_cost.setText('')
         self.show_client_name()
         self.show_all_clients()
 
@@ -305,10 +367,8 @@ class MainApp(QMainWindow, Program):
     #         for item in data:
     #             self.search_name.addItem(item[0])
 
-
-
     def search(self):
-        self.search_auto()
+
         name = self.search_name.text()
 
         self.cur = self.db.cursor()
@@ -369,7 +429,7 @@ class MainApp(QMainWindow, Program):
         Return Data
         """
 
-        name = self.sell_name.currentText()
+        name = self.sell_name.text()
         if len(self.sell_number.text().strip()) > 0:
             number = int(self.sell_number.text().strip())
         else:
@@ -536,12 +596,20 @@ class MainApp(QMainWindow, Program):
             last_price = item[5]
             x += int(total)
             table.add_row([name, number, unit_price, total, last_price])
-
-        self.selling_label.setText(
-            table.draw() + '\n\n' + f'الاجمالي = {x}' + '\t\t' + f'بعد الخصم = {self.all_sell_total_after.text()}')
+        fix_cost = float(self.new_client_cost.text())
+        print(fix_cost)
+        if fix_cost > 0:
+            self.selling_label.setText(
+                table.draw() + '\n\n\t\t' + f'منتجات = {x}' + '\n\t\t' +
+                f'بعد الخصم = {self.all_sell_total_after.text()}' + '\n\t\t' + f'مصنعيه = {fix_cost}' +
+                '\n\n\t\t' + f'الاجمالي = {x+fix_cost}')
+        else:
+            self.selling_label.setText(
+                table.draw() + '\n\n\t\t' + f'الاجمالي = {x}' + '/n\t\t' +
+                f'بعد الخصم = {self.all_sell_total_after.text()}')
 
     def show_avail(self):
-        name = self.sell_name.currentText()
+        name = self.sell_name.text()
 
         self.cur = self.db.cursor()
         self.cur.execute(
@@ -760,7 +828,6 @@ class MainApp(QMainWindow, Program):
     # *******************************
 
     def house_db(self):
-
         self.cur = self.db.cursor()
         self.cur.execute(f''' SELECT id, p_name, h_number, p_price FROM products ''')
         data = self.cur.fetchall()
@@ -951,7 +1018,7 @@ class MainApp(QMainWindow, Program):
         self.new_client_condition.setText('')
         self.new_client_fix.setText('')
         # self.new_client_money.setText('')
-        self.new_client_cost.setText('')
+        # cost = self.new_client_cost.text()
         self.show_client_name()
         self.show_all_clients()
         self.hide_client_group()
@@ -964,7 +1031,7 @@ class MainApp(QMainWindow, Program):
         # self.search_show_products()
         self.search()
         self.store_db()
-        self.sell_show_products()
+        # self.sell_show_products()
         self.show_avail()
         self.house_db()
         # self.show_house_name()
@@ -1046,41 +1113,26 @@ class MainApp(QMainWindow, Program):
     # *******************************************
     # *******************************************
     # *******************************************
-    def buy_auto(self):
+
+    def get_prod_name(self):
         self.cur = self.db.cursor()
         self.cur.execute('''SELECT p_name FROM products''')
         data = self.cur.fetchall()
         a = []
-        for i in data:
-            a.append(i[0])
-        print(a)
+        if data:
+            for i in data:
+                a.append(i[0])
+        return a
+
+    def auto_complete(self):
+        a = self.get_prod_name()
         com = QCompleter(a)
+        self.search_name.setCompleter(com)
+        self.sell_name.setCompleter(com)
+        self.house_name.setCompleter(com)
         self.buy_name.setCompleter(com)
         # ///////////////////////
 
-    def house_auto(self):
-        self.cur = self.db.cursor()
-        self.cur.execute('''SELECT p_name FROM products''')
-        data = self.cur.fetchall()
-        a = []
-        for i in data:
-            a.append(i[0])
-        print(a)
-        com = QCompleter(a)
-        self.house_name.setCompleter(com)
-        # ///////////////////////
-
-    def search_auto(self):
-        self.cur = self.db.cursor()
-        self.cur.execute('''SELECT p_name FROM products''')
-        data = self.cur.fetchall()
-        a = []
-        for i in data:
-            a.append(i[0])
-        print(a)
-        com = QCompleter(a)
-        self.search_name.setCompleter(com)
-        # ///////////////////////
 
 
 def main():
